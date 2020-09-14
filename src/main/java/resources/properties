@@ -1,0 +1,4 @@
+browser = Chrome
+LoginPage = https://frontdesk.test-jfisoftware.com/main/views/cover.aspx
+Employee1UserName = todd
+Employee1Password = 111
