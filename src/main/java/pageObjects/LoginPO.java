@@ -10,18 +10,18 @@ public class LoginPO {
 
 	// OBJECTS
 	
-		By userName = By.id("UserName"); //text input field
-		By password = By.id("Password"); //text input field
-		By loginButton = By.id("submit");
-
-		By usernameRequiredMessage = By.xpath("//span[@for='UserName']");
-		By passwordRequiredMessage = By.xpath("//span[@for='Password']");
-		
-		By topOfPageLogo = By.xpath("(//div[@class='logo'])[1]");
-		By bottomOfPageLogo = By.xpath("(//div[@class='logo'])[2]");
-		
-		By credentialsErrorMessage = By.xpath("//div[@class='validation-summary-errors errorfontcolor']/ul/li");
-		By ForgotPassword = By.className("login-link");
+		By userNameInputField = By.id("ContentPlaceHolder1_txtusername"); //text input field
+		By passwordInputField = By.id("ContentPlaceHolder1_txtpassword"); //text input field
+		By loginButton = By.cssSelector("input[type='submit']");
+//
+//		By usernameRequiredMessage = By.xpath("//span[@for='UserName']");
+//		By passwordRequiredMessage = By.xpath("//span[@for='Password']");
+//		
+//		By topOfPageLogo = By.xpath("(//div[@class='logo'])[1]");
+//		By bottomOfPageLogo = By.xpath("(//div[@class='logo'])[2]");
+//		
+//		By credentialsErrorMessage = By.xpath("//div[@class='validation-summary-errors errorfontcolor']/ul/li");
+//		By ForgotPassword = By.className("login-link");
 		
 		
 	// CONSTRUCTOR
@@ -32,40 +32,40 @@ public class LoginPO {
 		}
 	// METHODS
 
-		public WebElement getUserName()
+		public WebElement getUserNameInputField()
 		{
-			return driver.findElement(userName);
+			return driver.findElement(userNameInputField);
 		}
-		public WebElement getPassword()
+		public WebElement getPasswordInputField()
 		{
-			return driver.findElement(password);
+			return driver.findElement(passwordInputField);
 		}
 		public WebElement getLoginButton()
 		{
 			return driver.findElement(loginButton);
 		}
-		public WebElement getcredentialsErrorMessage()
-		{
-			return driver.findElement(credentialsErrorMessage);
-		}
-		public WebElement getusernameRequiredMessage()
-		{
-			return driver.findElement(usernameRequiredMessage);
-		}
-		public WebElement getpasswordRequiredMessage()
-		{
-			return driver.findElement(passwordRequiredMessage);
-		}
-		public WebElement getForgotPassword()
-		{
-			return driver.findElement(ForgotPassword);
-		}
-		public WebElement getTopOfPageLogo()
-		{
-			return driver.findElement(topOfPageLogo);
-		}
-		public WebElement getBottomOfPageLogo()
-		{
-			return driver.findElement(bottomOfPageLogo);
-		}
+//		public WebElement getcredentialsErrorMessage()
+//		{
+//			return driver.findElement(credentialsErrorMessage);
+//		}
+//		public WebElement getusernameRequiredMessage()
+//		{
+//			return driver.findElement(usernameRequiredMessage);
+//		}
+//		public WebElement getpasswordRequiredMessage()
+//		{
+//			return driver.findElement(passwordRequiredMessage);
+//		}
+//		public WebElement getForgotPassword()
+//		{
+//			return driver.findElement(ForgotPassword);
+//		}
+//		public WebElement getTopOfPageLogo()
+//		{
+//			return driver.findElement(topOfPageLogo);
+//		}
+//		public WebElement getBottomOfPageLogo()
+//		{
+//			return driver.findElement(bottomOfPageLogo);
+//		}
 }

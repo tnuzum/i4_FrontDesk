@@ -6,8 +6,8 @@
       <class name="FrontDesk.LoginPageTest">
         <methods>
           <include name="initialize"/>
-          <include name="pageTitle"/>
           <include name="teardown"/>
+          <include name="credentialsRequired"/>
         </methods>
       </class> <!-- FrontDesk.LoginPageTest -->
     </classes>

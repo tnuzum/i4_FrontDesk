@@ -1,4 +1,5 @@
 browser = Chrome
-LoginPage = https://frontdesk.test-jfisoftware.com/main/views/cover.aspx
-Employee1UserName = todd
-Employee1Password = 111
+LoginPage = https://frontdesk.test-jfisoftware.com/Main/Views/EmployeeLogin.aspx
+!https://frontdesk.test-jfisoftware.com/main/views/cover.aspx
+employeeBarcodeId = Todd
+employeePassword = Green@123

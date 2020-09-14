@@ -8,6 +8,20 @@ public class DashboardPO {
 
 	public static WebDriver driver;
 	
+	// OBJECTS
+	By frontDeskButton 		= By.id("ContentPlaceHolder1_lnkFrontDesk");
+	
+	// CONSTRUCTOR
+	public DashboardPO(WebDriver driver) {
+		DashboardPO.driver = driver;
+	}
+	
+	// METHODS
+	public WebElement getFrontDeskButton()
+	{
+		return driver.findElement(frontDeskButton);
+	}
+	
 	
 	/* !! Examples !!
 
