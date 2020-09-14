@@ -1,5 +1,5 @@
 browser = Chrome
 LoginPage = https://frontdesk.test-jfisoftware.com/Main/Views/EmployeeLogin.aspx
 !https://frontdesk.test-jfisoftware.com/main/views/cover.aspx
-employeeBarcodeId = Todd
-employeePassword = Green@123
+employeeBarcodeId = qatraining
+employeePassword = training125
