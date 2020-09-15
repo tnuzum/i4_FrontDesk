@@ -8,6 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.CapabilityType;
 
 public class base {
@@ -28,7 +30,6 @@ public class base {
 		String browserName = prop.getProperty("browser"); // Use this to run locally
 		//String browserName = System.getProperty("browser"); // Use this to run on Automation Server
 
-		try {
 			if (browserName.equals("Chrome")) {
 				ChromeOptions co = new ChromeOptions();
 				co.merge(dcch);
@@ -46,9 +47,13 @@ public class base {
 						projectPath + "\\src\\main\\java\\webDrivers\\msedgedriver.exe");
 				driver = new EdgeDriver();
 			}
-		} catch (NullPointerException e) {
-			System.out.println("ERROR: Incorrect browserName Source, check base file.");
-		}
+			if (browserName.equals("IE")) {
+				InternetExplorerOptions options = new InternetExplorerOptions();
+				System.setProperty("webdriver.ie.driver",projectPath + "\\src\\main\\java\\webdrivers\\IEDriverServer.exe");
+				options.setCapability("ignoreZoomSetting", true);
+				driver = new InternetExplorerDriver(options); 
+				}
+
 
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
