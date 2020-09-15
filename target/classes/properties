@@ -1,4 +1,4 @@
-browser = Chrome
+browser = IE
 LoginPage = https://frontdesk.test-jfisoftware.com/Main/Views/EmployeeLogin.aspx
 !https://frontdesk.test-jfisoftware.com/main/views/cover.aspx
 employeeBarcodeId = qatraining
