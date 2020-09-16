@@ -7,7 +7,7 @@
         <methods>
           <include name="initialize"/>
           <include name="teardown"/>
-          <include name="credentialsRequired"/>
+          <include name="login"/>
         </methods>
       </class> <!-- FrontDesk.LoginPageTest -->
     </classes>

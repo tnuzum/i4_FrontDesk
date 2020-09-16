@@ -45,7 +45,7 @@ public class LoginPageTest extends base {
 //			softAssertion.assertAll();
 	}
 
-	@AfterTest (enabled =false)
+	@AfterTest (enabled =true)
 	public void teardown() {
 
 		driver.close();
