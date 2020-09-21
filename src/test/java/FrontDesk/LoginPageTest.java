@@ -38,7 +38,7 @@ public class LoginPageTest extends base {
 	@Test(priority = 2, description = "Login To Front Desk")
 	public void login() {
 
-		d.getFrontDeskButton().click();
+		//d.getFrontDeskButton().click();
 
 		CustomActions.loginEmployee(barcodeId, password);
 //			softAssertion.assertEquals(d.getpasswordRequiredMessage().getText(), "Password is required");
