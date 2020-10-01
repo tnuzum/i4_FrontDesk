@@ -6,14 +6,14 @@ import org.openqa.selenium.WebElement;
 
 public class DashboardPO {
 
-	public static WebDriver driver;
+	public WebDriver driver;
 	
 	// OBJECTS
 	By frontDeskButton 		= By.id("ContentPlaceHolder1_lnkFrontDesk");
 	
 	// CONSTRUCTOR
 	public DashboardPO(WebDriver driver) {
-		DashboardPO.driver = driver;
+		this.driver = driver;
 	}
 	
 	// METHODS

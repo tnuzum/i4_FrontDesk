@@ -6,13 +6,18 @@ import org.openqa.selenium.WebElement;
 
 public class LoginPO {
 
-	public static WebDriver driver;
+	public WebDriver driver;
 
 	// OBJECTS
 	
 		By userNameInputField = By.id("ContentPlaceHolder1_txtusername"); //text input field
 		By passwordInputField = By.id("ContentPlaceHolder1_txtpassword"); //text input field
-		By loginButton = By.cssSelector("input[type='submit']");
+		By loginButton = By.id("ContentPlaceHolder1_submit");
+		
+		
+		By EmpID = By.id("ContentPlaceHolder1_txtusername");
+		By EmpPW = By.id("ContentPlaceHolder1_txtpassword");
+		By EmpLogin = By.id("ContentPlaceHolder1_submit");
 //
 //		By usernameRequiredMessage = By.xpath("//span[@for='UserName']");
 //		By passwordRequiredMessage = By.xpath("//span[@for='Password']");
@@ -28,7 +33,7 @@ public class LoginPO {
 			
 		public LoginPO(WebDriver driver) {
 			// TODO Auto-generated constructor stub
-			LoginPO.driver = driver;
+			this.driver = driver;
 		}
 	// METHODS
 
@@ -44,6 +49,23 @@ public class LoginPO {
 		{
 			return driver.findElement(loginButton);
 		}
+		
+		
+		public WebElement getEmpId()
+		{
+			return driver.findElement(EmpID);
+		}
+		public WebElement getEmpPW()
+		{
+			return driver.findElement(EmpPW);
+		}
+		public WebElement getEmpLogin()
+		{
+			return driver.findElement(EmpLogin);
+		}
+		
+		
+		
 //		public WebElement getcredentialsErrorMessage()
 //		{
 //			return driver.findElement(credentialsErrorMessage);
