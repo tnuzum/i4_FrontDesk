@@ -1,6 +1,8 @@
 browser = IE
-LoginPage = https://frontdesk.test-jfisoftware.com/Main/Views/Login.aspx
-!https://frontdesk.test-jfisoftware.com/Main/Views/EmployeeLogin.aspx
-!https://frontdesk.test-jfisoftware.com/main/views/cover.aspx
-employeeBarcodeId = qatraining
-employeePassword = training125
+clubLoginPage = https://frontdesk.test-jfisoftware.com/Main/Views/Login.aspx
+EmpLoginPage = https://frontdesk.test-jfisoftware.com/Main/Views/EmployeeLogin.aspx
+!https://frontdesk.test-jfisoftware.com/main/views/cover.aspxc
+clubBarcodeId = qatraining
+clubPassword = training125
+EmpBarcodeID = Seema
+EmpPassword = Sunday@123
