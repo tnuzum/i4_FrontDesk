@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import pageObjects.DashboardPO;
+import pageObjects.POS;
 import resources.CustomActions;
 import resources.base;
 
@@ -18,6 +19,7 @@ public class LoginPageTest extends base {
 	String barcodeId;
 	String password;
 
+    
 	@BeforeTest
 	public void initialize() throws Exception {
 
@@ -27,25 +29,27 @@ public class LoginPageTest extends base {
 		d = new DashboardPO(driver);
 		barcodeId = prop.getProperty("employeeBarcodeId");
 		password = prop.getProperty("employeePassword");
+		
 	}
 
 	@Test(priority = 1, description = "Validate Page Title")
 	public void pageTitle() {
 
 		Assert.assertEquals(driver.getTitle(), "i4: Front Desk");
+		System.out.println(driver.getTitle());
 	}
 
-	@Test(priority = 2, description = "Login To Front Desk")
+    @Test(priority = 2, description = "Login To Front Desk")
 	public void login() {
 
-		d.getFrontDeskButton().click();
+	   d.getFrontDeskButton().click();
 
 		CustomActions.loginEmployee(barcodeId, password);
 //			softAssertion.assertEquals(d.getpasswordRequiredMessage().getText(), "Password is required");
 //			softAssertion.assertAll();
 	}
-
-	@AfterTest (enabled =true)
+	
+	@AfterTest (enabled =false)
 	public void teardown() {
 
 		driver.close();
