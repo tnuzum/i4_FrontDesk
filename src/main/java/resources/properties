@@ -1,30 +1,5 @@
 browser = IE
 LoginPage = https://frontdesk.test-jfisoftware.com/Main/Views/EmployeeLogin.aspx
 !https://frontdesk.test-jfisoftware.com/main/views/cover.aspx
-employeeBarcodeId = Uma
-employeePassword = blue1234
-searchlastname = t
-payment = cash
-cvv = 789
-
-/*  Quicksale_newmember */
-memberfirstname = rfrfrfrfrb
-memberlastname = burestbbb
-memberaddress = Ionview
-membercity = Ottawa
-memberstate = Canada
-memberdateofbirth = 10/05/1990
-memberbillingname = peter
-membermobilenumber = 9874589615
-memberworknumber = 6548425863
-memberemail = ptechbr456@gmil.com
-creditcardnum = 5454545454545454
-cardexpmonth = 12
-cardexpyear = 2022
-
-/* Quicksale_renewal */
-
-creditcardnummc = 5454545454545454
-cardexpmonthfield = 12
-cardexpyearfield = 2022
-Paymentoption = paynow
+employeeBarcodeId = qatraining
+employeePassword = training125

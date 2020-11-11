@@ -49,7 +49,7 @@ public class base {
 			}
 			if (browserName.equals("IE")) {
 				InternetExplorerOptions options = new InternetExplorerOptions();
-				System.setProperty("webdriver.ie.driver",projectPath + "\\src\\main\\java\\webdrivers\\IEDriverServer_32.exe");
+				System.setProperty("webdriver.ie.driver",projectPath + "\\src\\main\\java\\webdrivers\\IEDriverServer.exe");
 				options.setCapability("ignoreZoomSetting", true);
 				driver = new InternetExplorerDriver(options); 
 				}
