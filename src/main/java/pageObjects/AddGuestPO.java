@@ -180,7 +180,7 @@ public class AddGuestPO {
    public void guestinformation(String guestfirstname, String guestlastname, String dateofbirth, String addressfield, String cityname,
 			String zipcode, String guestpass, String guestemail, String guestphone, String familyfirstname, String homeph ) throws  InterruptedException {
 	   
-	  // String titile = null;
+	 
 	   
 
 		Actions act = new Actions(driver);
@@ -194,6 +194,8 @@ public class AddGuestPO {
 	    act.click();
 	   getgenderbtn().click();
 	   getdateofbirthfield().sendKeys(dateofbirth);
+	   act.click();
+	   getaddressfield().click();
 	   getaddressfield().sendKeys(addressfield);
 	   getcityfield().clear();
 	   driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
