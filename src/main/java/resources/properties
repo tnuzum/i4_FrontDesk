@@ -4,7 +4,7 @@ LoginPage = https://frontdesk.test-jfisoftware.com/Main/Views/EmployeeLogin.aspx
 employeeBarcodeId = Uma
 employeePassword = blue1234
 searchlastname = t
-payment = cash
+payment = mastercard
 cvv = 789
 
 clubLoginPage = https://frontdesk.test-jfisoftware.com/Main/Views/Login.aspx
@@ -32,15 +32,18 @@ cardexpyear = 2022
 
 /* Quicksale_renewal */
 
+searchfirstname = a
 cardtype =  Visa
 visacard = 4111111111111111
 creditcardnummc = 5454545454545454
 cardexpmonthfield = 12
 cardexpyearfield = 2022
 Paymentoption = paynow
+paymentmethod = creditcard
+cvvnum = 562
 
 /* Add guest */
-guestfirstname = sangeeth
+guestfirstname = krishnarao
 guestlastname = kinnera   
 dateofbirth = 10/05/1992
 addressfield = rosemountdrive
@@ -49,7 +52,7 @@ Zipcode = 523687
 guestpassperiod = 4
 email = grillgarden@gmail.com
 workphone = 9856145278
-familyfirstname = Aishwarya
+familyfirstname = Aishwaryaa
 homephone = 6478426512
 
 /* Change request */
