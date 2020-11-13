@@ -80,9 +80,18 @@ public Object POSTab() {
 	public Object newContract() {
 		QuickSalesPO Q = new QuickSalesPO(driver);
 		Q.getnewContract1().click();
+		//Q.getexistingMember1().click();
 		return null;
 }	
-
+	public Object existingMember() {
+		QuickSalesPO s = new QuickSalesPO(driver);
+	s.getexistingMember1().click();
+		return null;
+}	
+	
+	
+	
+	
 	public String itemBarcode() {
 		POSPO P = new POSPO(driver);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
@@ -90,33 +99,12 @@ public Object POSTab() {
 		//P.getitemBarcode1().click();
 		return null;
 	}
-	public String itemBarcodeSearch() {
-		POSPO I = new POSPO(driver);
-		I.getitemBarcodeSearch1().click();
+	public String itemBarcodedemo(String barcodetext) {
+		POSPO P = new POSPO(driver);
+		P.getBarcodetext().sendKeys(barcodetext);
 		return null;
-	
-	}
-	
-	public String itemSelect() {
-		POSPO S = new POSPO(driver);
-		S.getitemSelect1().click();
-		return null;
-	}
-
-	public String proceedBtn() {
-		POSPO T = new POSPO(driver);
-		T.getproceedBtn1().click();
-		return null;
-	}
-	public String cash1() {
-		POSPO C = new POSPO(driver);
-		C.getcash1A().click();
-		return null;
-	}
-	public String processPayment() {
-		POSPO M = new POSPO(driver);
-		M.getprocessPayment1().click();
-		return null;
+		
+		
 	}
 	
 }
