@@ -3,13 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="FrontDesk.LoginPageTest">
+      <class name="FrontDesk.QuicksalerenewalTest">
         <methods>
-          <include name="initialize"/>
-          <include name="teardown"/>
-          <include name="login"/>
+          <include name="renewalcontract"/>
         </methods>
-      </class> <!-- FrontDesk.LoginPageTest -->
+      </class> <!-- FrontDesk.QuicksalerenewalTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
