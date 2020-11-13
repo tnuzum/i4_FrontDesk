@@ -1,37 +1,32 @@
 package FrontDesk;
 
-import org.testng.Assert;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import pageObjects.DashboardPO;
+import pageObjects.LoginPO;
 import resources.CustomActions;
 import resources.base;
 
-import pageObjects.LoginPO;
-
-public class LoginPageTest extends base {
-
+public class POS extends base {
 	public SoftAssert softAssertion = new SoftAssert();
-
+	
 	DashboardPO d;
 	String clubBarcodeId;
 	String clubPassword;
 	
+
 	LoginPO L;
 	String BarcodeIDEmp;
 	String PasswordEmp;
 	public CustomActions ca;
-	public LoginPageTest() {
-	ca = new CustomActions();
 	
-	
+	public POS() {
+		ca =new CustomActions();
 	}
 	@BeforeTest
 	public void initialize() throws Exception {
-
 		driver = initializeDriver();
 		ca.setDriver(driver);
 		
@@ -48,32 +43,30 @@ public class LoginPageTest extends base {
 		BarcodeIDEmp = prop.getProperty("EmpBarcodeID");
 		PasswordEmp = prop.getProperty("EmpPassword");
 		
-	}
-
-	@Test(priority = 1, description = "Validate Page Title")
-	public void pageTitle() {
-
-		Assert.assertEquals(driver.getTitle(), "i4: Front Desk");
-	}
-
-	@Test(priority = 2, description = "Login To Front Desk")
-	public void login() throws InterruptedException {
-
-	//d.getFrontDeskButton().click();
-	//	Thread.sleep(2000);
-		ca.loginClub(clubBarcodeId, clubPassword);
+				
+		}
+		@Test (priority = 1)
+		public void POSTest() throws InterruptedException {
+		ca.LoginFD(clubBarcodeId,clubPassword,BarcodeIDEmp,PasswordEmp);
 		Thread.sleep(2000);
-		ca.loginEmp(BarcodeIDEmp,PasswordEmp);
+		ca.POSTab();
+		Thread.sleep(2000);
+		ca.itemBarcode();
+		Thread.sleep(2000);
+		ca.itemBarcodeSearch();
+		ca.itemSelect();
+		ca.proceedBtn();
+		ca.cash1();
+		ca.processPayment();
+		}
+
 		
-//			softAssertion.assertEquals(d.getpasswordRequiredMessage().getText(), "Password is required");
-//			softAssertion.assertAll();
+		
+		
+		
 	}
 
-	@AfterTest (enabled =false)
-	public void teardown() {
 
-		driver.close();
-		driver = null;
-	}
+	
 
-}
+
