@@ -4,6 +4,9 @@
   <test thread-count="5" name="Test">
     <classes>
       <class name="FrontDesk.Addguesttest"/>
+      <class name="FrontDesk.LoginPageTest"/>
+      <class name="FrontDesk.POS"/>
+      <class name="FrontDesk.QuickSales"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
