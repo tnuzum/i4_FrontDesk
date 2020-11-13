@@ -7,6 +7,14 @@ searchlastname = t
 payment = mastercard
 cvv = 789
 
+clubLoginPage = https://frontdesk.test-jfisoftware.com/Main/Views/Login.aspx
+EmpLoginPage = https://frontdesk.test-jfisoftware.com/Main/Views/EmployeeLogin.aspx
+!https://frontdesk.test-jfisoftware.com/main/views/cover.aspxc
+clubBarcodeId = qatraining
+clubPassword = training125
+EmpBarcodeID = Seema
+EmpPassword = Sunday@123
+
 /*  Quicksale_newmember */
 memberfirstname = sarswati
 memberlastname = bushhhh
@@ -50,7 +58,3 @@ homephone = 6478426512
 /* Change request */
 
 firstletter = t
-
-
-
-
