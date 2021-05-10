@@ -7,7 +7,11 @@ import org.openqa.selenium.WebElement;
 public class HomePO {
 	public WebDriver driver;
 	// OBJECTS
+	
+	By memebrmanagertab = By.id("lnkMemberManager");
+	
 	By quickSalesTab = By.id("lnkQuickSal");
+	
 	By POSTab1 = By.id("lnkWebPOS");
 
 
@@ -26,6 +30,12 @@ public class HomePO {
 	public WebElement getPOSTab1()
 	{
 		return driver.findElement(POSTab1);
+	}
+	
+	public WebElement getmembermanagertab() {
+		
+		return driver.findElement(memebrmanagertab);
+		
 	}
 
 }
