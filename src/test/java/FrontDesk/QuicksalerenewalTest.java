@@ -33,12 +33,14 @@ private static String barcode = "G3131";
 
 
 
-//private static String cvvnum = "854";
 private static String zip = "M5H2N1";
 private static String familyfirstname = "James";
 private static String familyphone = "9856741256";
 private static String familycell = "6523741256";
 private static String familymemberemail = "Jamespeter452@gmail.com";
+private static String address1 = "Dunbrack St";
+private static String city = "Halifax";
+private static String state = "NS";
 private static JavascriptExecutor jse;
 
 
@@ -55,7 +57,7 @@ public CustomActions ca;
 
 public Quicksale_renewalPO ren;
 
-String expyear, address1, city, state;
+String expyear;
 
 String firstname, lastname, dateofbirth;
 
@@ -105,10 +107,6 @@ public void initialize() throws Exception {
 
 @Test(enabled = true, priority = 1, description = "Quicksale_renewal contract, making Payment with Cash")
 public void renewalcontract() throws Exception {
-
-	//ren = new Quicksale_renewalPO(driver);
-
-	// jse.executeScript("arguments[0].click();",ren.getquicksalebtn());
 
 	jse.executeScript("arguments[0].click();", ren.getrenewal());
 	ren.getsearchbybarcode().sendKeys(barcode);
@@ -166,11 +164,13 @@ public void renewalcontract() throws Exception {
 
 	if (cardtype.equals("Visa")) {
 		select.selectByIndex(5);
+		ren.getcreditcardfield().clear();
 		ren.getcreditcardfield().sendKeys(visacard);
 
 	}
 	if (cardtype.equals("Mc")) {
 		select.selectByIndex(4);
+		ren.getcreditcardfield().clear();
 		ren.getcreditcardfield().sendKeys(mastercard);
 
 	}
@@ -289,7 +289,7 @@ public void renewalcontract() throws Exception {
 
 @Test(enabled = true, priority = 2, description = "Quicksale_renewal contract, making Payment with Creditcard")
 public void renewalcontract_Creditcard() throws Exception {
-	//ren = new Quicksale_renewalPO(driver);
+	
 
 	jse.executeScript("arguments[0].click();", ren.getrenewal());
 
@@ -341,17 +341,18 @@ public void renewalcontract_Creditcard() throws Exception {
 
 	action.sendKeys(Keys.PAGE_DOWN).perform();
 
-	//ren.getformofpayment().click();
 
 	Select select = new Select(ren.getformofpayment());
 
 	if (cardtype.equals("Visa")) {
 		select.selectByIndex(5);
+		ren.getcreditcardfield().clear();
 		ren.getcreditcardfield().sendKeys(visacard);
 
 	}
 	if (cardtype.equals("Mc")) {
 		select.selectByIndex(4);
+		ren.getcreditcardfield().clear();
 		ren.getcreditcardfield().sendKeys(mastercard);
 
 	}
@@ -438,8 +439,7 @@ public void renewalcontract_Creditcard() throws Exception {
 	driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
 	jse.executeScript("arguments[0].click();", ren.getproceedplanpayment());
-	// ren.getproceedplanpayment().click();
-
+	
 	driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
 	String Paymentopt = prop.getProperty("Paymentoption");
@@ -538,16 +538,18 @@ public void renewalcontract_splitpayment() throws Exception {
 
 	action.sendKeys(Keys.PAGE_DOWN).perform();
 
-	//ren.getformofpayment().click();
+	
 	Select select = new Select(ren.getformofpayment());
 
 	if (cardtype.equals("Visa")) {
 		select.selectByIndex(5);
+		ren.getcreditcardfield().clear();
 		ren.getcreditcardfield().sendKeys(visacard);
 
 	}
 	if (cardtype.equals("Mc")) {
 		select.selectByIndex(4);
+		ren.getcreditcardfield().clear();
 		ren.getcreditcardfield().sendKeys(mastercard);
 
 	}
@@ -642,7 +644,8 @@ public void renewalcontract_splitpayment() throws Exception {
 	// ca.takescreenshot();
 	String Paymentopt = prop.getProperty("Paymentoption");
 
-	if (Paymentopt.equals("payNow")) {
+	if (Paymentopt.equals("PayNow")) {
+		jse.executeScript("arguments[0].click();", ren.getpaynowbtn());
 		jse.executeScript("arguments[0].click();", ren.getpaynowbtn());
 
 		jse.executeScript("arguments[0].click();", ren.getsplitpaymentyes());
@@ -651,7 +654,7 @@ public void renewalcontract_splitpayment() throws Exception {
 
 		jse.executeScript("arguments[0].click();", ren.getpaymentbycreditcard());
 		ren.getcashamount().sendKeys("5");
-		ren.getccamount().sendKeys("10");
+		action.sendKeys(Keys.PAGE_DOWN).perform();
 		jse.executeScript("arguments[0].click();", ren.getselectcardtype());
 		Thread.sleep(2000);
 
@@ -684,9 +687,9 @@ public void renewalcontract_splitpayment() throws Exception {
 	}
 
 	jse.executeScript("arguments[0].click();", ren.getproceedgotobilling());
-	String actualConfirmMessage = driver.findElement(By.cssSelector(".control-label")).getText();
-	System.out.println(actualConfirmMessage);
-	Assert.assertEquals(actualConfirmMessage, expectedconfirmationmsg);
+	
+	
+	Thread.sleep(1000);
 	jse.executeScript("arguments[0].click();", ren.getbtnapprove());
 
 }
