@@ -1,13 +1,8 @@
 package pageObjects;
 
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
 public class AddGuestPO {
 	
@@ -16,13 +11,15 @@ public class AddGuestPO {
 	
 	By Addguestbtn = By.xpath("//a[@id='lnkAddGuest']");
 	
+	//By Addguestbtn = By.id("lnkAddGuest");
+	
 	By guestfirstname = By.xpath("//input[@id='ContentPlaceHolder1_AddGuestForm_rftxtFirstName']");
 	
 	By guestlastname = By.xpath("//input[@id='ContentPlaceHolder1_AddGuestForm_rftxtLastName']");
 	
-	By guesttitle = By.xpath("//select[@id='ContentPlaceHolder1_AddGuestForm_rfddlTitle']");
+	By guesttitle = By.xpath("//*[@id='ContentPlaceHolder1_AddGuestForm_rfddlTitle']");
 	
-	By titledrop = By.xpath("//option[contains(text(),'Mr.')]");
+	//By titledrop = By.xpath("//option[contains(text(),'Mr.')]");
 	
 	By genderbtn= By.xpath("//body[1]/form[1]/div[3]/div[1]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]"
 			+ "/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/label[1]/span[1]/span[2]");
@@ -89,11 +86,11 @@ public class AddGuestPO {
 		return driver.findElement(guesttitle);
 
 	}  
-   public WebElement gettitledrop() {
+ //  public WebElement gettitledrop() {
 		
-		return driver.findElement(titledrop);
+//		return driver.findElement(titledrop);
 
-	}
+//	}
    public WebElement getgenderbtn() {
 		
 		return driver.findElement(genderbtn);
@@ -177,72 +174,7 @@ public class AddGuestPO {
    
    
    
-   public void guestinformation(String guestfirstname, String guestlastname, String dateofbirth, String addressfield, String cityname,
-			String zipcode, String guestpass, String guestemail, String guestphone, String familyfirstname, String homeph ) throws  InterruptedException {
-	   
-	 
-	   
 
-		Actions act = new Actions(driver);
-		
-
-		getAddguestbtn().click();
-		getguestfirstname().sendKeys(guestfirstname);
-	    getguestlastname().sendKeys(guestlastname);
-	    getguesttitle().click();
-	    gettitledrop().click(); 
-	    act.click();
-	   getgenderbtn().click();
-	   getdateofbirthfield().sendKeys(dateofbirth);
-	   act.click();
-	   getaddressfield().click();
-	   getaddressfield().sendKeys(addressfield);
-	   getcityfield().clear();
-	   driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-	   getcityfield().sendKeys(cityname);
-	   getzipcodefield().clear();
-	   getzipcodefield().sendKeys(zipcode);
-	   act.sendKeys(Keys.PAGE_DOWN).click();
-	   getguestpass().clear();
-	   driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-	   Thread.sleep(4000);
-	   getguestpass().sendKeys(guestpass);
-	   act.sendKeys(Keys.PAGE_DOWN).click();
-	   Thread.sleep(4000);
-	   getguestemail().click();
-	   getguestemail().sendKeys(guestemail);
-	   getguestphone().clear();
-	   driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-	   Thread.sleep(4000);
-	   getguestphone().sendKeys(guestphone);
-	   getprivacypolicy().click();
-	   getsubmit().click();
-	   
-	   
-	   List<WebElement> Continuebtn =  driver.findElements(By.xpath("//input[@id='ContentPlaceHolder1_btnContinue']"));
-	   
-	   
-	 if(Continuebtn.size()>0)
-	 { 
-		 
-		 Continuebtn.get(0).click();
-		 
-	  }
-	   getaddfamilymember().click();
-	   Thread.sleep(4000);
-	   getfamilyfirstname().sendKeys(familyfirstname);
-	   gethomeph().sendKeys(homeph);
-	   getfamilygender().click();
-	   
-	   getprivacypolicy().click();
-	   getfamilyformsubmit().click();
-	   
-	   
-	   
-	   
-	   
-				
-	}
 	   
    }
 
