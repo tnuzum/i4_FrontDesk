@@ -15,7 +15,7 @@ import org.openqa.selenium.remote.CapabilityType;
 public class base {
 	public WebDriver driver;
 	public Properties prop;
-	static String projectPath = System.getProperty("user.dir");
+    static String projectPath = System.getProperty("user.dir");
 
 	public WebDriver initializeDriver() throws Exception {
 
