@@ -79,7 +79,7 @@ public class POS_Test extends base {
 		Thread.sleep(2000);
 				
 		}
-		@Test (priority = 1, enabled=true, description = "POSTest paymentwith Cash" )
+		@Test (priority = 1, enabled=false, description = "POSTest paymentwith Cash" )
 		public void POSTest_Paymentwith_cash() throws InterruptedException {
 	    po = new POSPO(driver);
 	   
@@ -155,7 +155,7 @@ public class POS_Test extends base {
 			String s2 = driver.findElement(By.className("modal-body")).getText();
 			// System.out.println(s2);
 
-			po.getcardholdername().sendKeys(cardholdername);;
+			//po.getcardholdername().sendKeys();
 			po.getcardnumber().sendKeys(creditcard);
 			
 			Select selectmonth = new Select(po.getexpirymonth());
@@ -179,15 +179,19 @@ public class POS_Test extends base {
 			action.sendKeys(Keys.TAB).build().perform();
 			action.sendKeys(Keys.TAB).build().perform();
 			
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			Thread.sleep(2000);
 			
 			//po.getsubmitbtn().click();
 			jse.executeScript("arguments[0].click();",po.getsubmitbtn());
+			Thread.sleep(2000);
+			jse.executeScript("arguments[0].click();",po.gethistory());
+			jse.executeScript("arguments[0].click();",po.getclosehistory());
+			System.out.println("printing");
 			
 		
 		}
 		
-		@Test (priority = 3, enabled=true, description = "POSTest paymentwith Coupon" )
+		@Test (priority = 3, enabled=false, description = "POSTest paymentwith Coupon" )
 		public void POSTest_Paymentwith_coupon() throws InterruptedException {
 	    po = new POSPO(driver);
 	  
@@ -220,7 +224,7 @@ public class POS_Test extends base {
 
 
 
-		@AfterClass (enabled =true)
+		@AfterClass (enabled =false)
 		public void teardown() {
 
 			driver.close();
