@@ -1,8 +1,12 @@
 package FrontDesk;
 
+import java.security.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -85,7 +89,7 @@ public class Addguesttest extends base {
 			}
 	 
  
-	@Test(priority = 1, description = "Add guest")
+	@Test(priority = 1, groups = {"Regression"}, description = "Add guest")
 
 	public void addguest() throws Exception {
 	
@@ -98,6 +102,12 @@ public class Addguesttest extends base {
 		
 		Thread.sleep(2000);
 		Assert.assertEquals(driver.getTitle(), "Member Manager");
+		
+		DateFormat df = new SimpleDateFormat("MM/d/yyyy HH:mm:ss");// HH:mm:ss
+		Calendar today = Calendar.getInstance();
+		String currentdate = df.format(today.getTime());
+		System.out.println("Current date is  " + currentdate);
+		
 	 
         jse.executeScript("arguments[0].click();",gus.getAddguestbtn());
         
@@ -146,38 +156,38 @@ public class Addguesttest extends base {
 		jse.executeScript("arguments[0].click();",gus.getprivacypolicy());
 		jse.executeScript("arguments[0].click();",gus.getsubmit());
 
-//		List<WebElement> Continuebtn = driver.findElements(By.xpath("//input[@id='ContentPlaceHolder1_btnContinue']"));
-//
-//		if (Continuebtn.size() > 0) {
-//
-//			 jse.executeScript("arguments[0].click();",Continuebtn.get(0));
-//
-//		}
-//
-//		String ActualTitle1 = driver.findElement(By.id("ContentPlaceHolder1_lblmessaage")).getText();
-//		System.out.println( "Actualtitle is :" + ActualTitle1);
-//	//	System.out.println("Guest firstname is "+guestfirstname );
-//	//	System.out.println("Guest firstname is "+guestlastname );
-//		String ExpectedTitle1 = guestfirstname+" " +guestlastname+" " +"is added.";
-//		System.out.println( "Expectedtitle is :" + ExpectedTitle1);
-//		Assert.assertEquals(ActualTitle1, ExpectedTitle1);
-//		
-//		
-//	//	ca.takescreenshot();
-//		jse.executeScript("arguments[0].click();",gus.getaddfamilymember());
-//		Thread.sleep(2000);
-//		gus.getfamilyfirstname().sendKeys(familyfirstname);
-//		gus.gethomeph().sendKeys(homeph);
-//		jse.executeScript("arguments[0].click();",gus.getfamilygender());
-//
-//		jse.executeScript("arguments[0].click();",gus.getprivacypolicy());
-//		jse.executeScript("arguments[0].click();",gus.getfamilyformsubmit());
-//		
+		List<WebElement> Continuebtn = driver.findElements(By.xpath("//input[@id='ContentPlaceHolder1_btnContinue']"));
+
+		if (Continuebtn.size() > 0) {
+
+			 jse.executeScript("arguments[0].click();",Continuebtn.get(0));
+
+		}
+
+		String ActualTitle1 = driver.findElement(By.id("ContentPlaceHolder1_lblmessaage")).getText();
+		System.out.println( "Actualtitle is :" + ActualTitle1);
+	//	System.out.println("Guest firstname is "+guestfirstname );
+	//	System.out.println("Guest firstname is "+guestlastname );
+		String ExpectedTitle1 = guestfirstname+" " +guestlastname+" " +"is added.";
+		System.out.println( "Expectedtitle is :" + ExpectedTitle1);
+		Assert.assertEquals(ActualTitle1, ExpectedTitle1);
+		
+		
+	//	ca.takescreenshot();
+		jse.executeScript("arguments[0].click();",gus.getaddfamilymember());
+		Thread.sleep(2000);
+		gus.getfamilyfirstname().sendKeys(familyfirstname);
+		gus.gethomeph().sendKeys(homeph);
+		jse.executeScript("arguments[0].click();",gus.getfamilygender());
+
+		jse.executeScript("arguments[0].click();",gus.getprivacypolicy());
+		jse.executeScript("arguments[0].click();",gus.getfamilyformsubmit());
+		
 			
 
 	}
 
-	@AfterClass(enabled =false)
+	@AfterClass(enabled =true)
 	public void teardown() {
 
 		driver.close();

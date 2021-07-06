@@ -7,7 +7,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -79,7 +81,7 @@ public class POS_Test extends base {
 		Thread.sleep(2000);
 				
 		}
-		@Test (priority = 1, enabled=false, description = "POSTest paymentwith Cash" )
+		@Test (priority = 1, enabled=true, description = "POSTest paymentwith Cash" )
 		public void POSTest_Paymentwith_cash() throws InterruptedException {
 	    po = new POSPO(driver);
 	   
@@ -119,7 +121,7 @@ public class POS_Test extends base {
 	
 		}
 	
-		@Test (priority = 2, enabled = true, description = "POSTest paymentwith Creditcard" )
+		@Test (priority = 3, enabled = true, description = "POSTest paymentwith Creditcard" )
 		public void POSTest_paymentwith_Creditcard() throws InterruptedException {
 	    po = new POSPO(driver);
 	   
@@ -156,6 +158,7 @@ public class POS_Test extends base {
 			// System.out.println(s2);
 
 			//po.getcardholdername().sendKeys();
+			po.getcardnumber().clear();
 			po.getcardnumber().sendKeys(creditcard);
 			
 			Select selectmonth = new Select(po.getexpirymonth());
@@ -182,16 +185,17 @@ public class POS_Test extends base {
 			Thread.sleep(2000);
 			
 			//po.getsubmitbtn().click();
-			jse.executeScript("arguments[0].click();",po.getsubmitbtn());
-			Thread.sleep(2000);
-			jse.executeScript("arguments[0].click();",po.gethistory());
-			jse.executeScript("arguments[0].click();",po.getclosehistory());
-			System.out.println("printing");
+			//jse.executeScript("arguments[0].click();",po.getsubmitbtn());
+			//action.moveToElement(po.getsubmitbtn()).click().perform();
+			//new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@id='ContentPlaceHolder1_ucAcceptCCPayment_lnkSubmit']"))).click();
+			po.getsubmitbtn().sendKeys(Keys.ENTER);
+			
+			
 			
 		
 		}
 		
-		@Test (priority = 3, enabled=false, description = "POSTest paymentwith Coupon" )
+		@Test (priority = 2, enabled=true, description = "POSTest paymentwith Coupon" )
 		public void POSTest_Paymentwith_coupon() throws InterruptedException {
 	    po = new POSPO(driver);
 	  

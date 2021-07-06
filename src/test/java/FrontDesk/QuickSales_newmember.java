@@ -88,7 +88,7 @@ public class QuickSales_newmember extends base {
 		
 	}
 
-	@Test(priority = 1)
+	@Test(priority = 1, groups = {"Regression"})
 	public void QuickSalesTest() throws Exception {
 		QuickSalesPO quicksale = new QuickSalesPO(driver);
 

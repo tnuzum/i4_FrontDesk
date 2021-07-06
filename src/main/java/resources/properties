@@ -6,7 +6,7 @@ EmpLoginPage = https://frontdesk.test-jfisoftware.com/Main/Views/EmployeeLogin.a
 clubBarcodeId = qatraining
 clubPassword = training125
 EmpBarcodeID = Autotesting
-EmpPassword = Test1234
+EmpPassword = Testing1234
 barcodeid = G1196
 
 payment = mastercard

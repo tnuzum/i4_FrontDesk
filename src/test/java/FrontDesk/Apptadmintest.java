@@ -1,8 +1,5 @@
 package FrontDesk;
 
-import static org.testng.Assert.assertNotNull;
-import static org.testng.Assert.assertTrue;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -87,7 +84,7 @@ public class Apptadmintest extends base {
 
 	}
 
-	@Test(enabled = false, priority = 1, description = "Apptadmin_makeappointment")
+	@Test(enabled = true, priority = 1, description = "Apptadmin_makeappointment")
 	public void Apptadmin_makeappointment() throws Exception {
 
 		Actions action = new Actions(driver);
@@ -139,7 +136,7 @@ public class Apptadmintest extends base {
 
 		jse.executeScript("arguments[0].click();", appt.getappintmentbtn());
 
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.MILLISECONDS);
+		
 		action.sendKeys(Keys.PAGE_DOWN).perform();
 
 	//	jse.executeScript("arguments[0].click();",
@@ -321,6 +318,7 @@ public class Apptadmintest extends base {
 		jse.executeScript("arguments[0].click();", appt.getrecurringappointment());
 
 		jse.executeScript("arguments[0].click();", appt.getsubmitbtn());
+		Thread.sleep(2000);
 
 		String s2 = driver.findElement(By.className("modal-body")).getText();
 
@@ -359,7 +357,7 @@ public class Apptadmintest extends base {
 
 	}
 
-	@Test(enabled = false, priority = 4, description = "Apptadmin_CancelRecurringappointment")
+	@Test(enabled = true, priority = 4, description = "Apptadmin_CancelRecurringappointment")
 	public void Apptadmin_CancelRecurringappointment() throws Exception {
 
 		Actions action = new Actions(driver);
@@ -422,7 +420,7 @@ public class Apptadmintest extends base {
 				.findElement(By.xpath(
 						"//table[@id='ContentPlaceHolder1_AppointmentFormView']/tbody/tr/td/div[3]/div/div[4]/div/p"))
 				.getText();
-
+		Assert.assertNotNull(cancellation_confirmationnumber);
 		System.out.println(cancellation_confirmationnumber);
 
 		jse.executeScript("arguments[0].click();", appt.getApptadmintbtn());
@@ -445,7 +443,7 @@ public class Apptadmintest extends base {
 
 	}
 
-	@AfterClass(enabled = false)
+	@AfterClass(enabled = true)
 	public void teardown() {
 
 		driver.close();

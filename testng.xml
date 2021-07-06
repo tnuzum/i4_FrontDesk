@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test thread-count="5" name="i4_Frontdesk">
-    <classes>
-      <class name="FrontDesk.POS_Test"/>
+ <groups>
+   <run>
+     <exclude name = "Regression"></exclude>
+   </run>
+ </groups>
+   <test thread-count="5" name="i4_Frontdesk">
+     <classes>
       
+      <class name="FrontDesk.POS_Test"/>
       <class name="FrontDesk.Addguesttest"/>
+      <class name="FrontDesk.Apptadmintest"/>
       <class name="FrontDesk.QuicksalerenewalTest"/>
       <class name="FrontDesk.Membermanager"/>
       <class name="FrontDesk.QuickSales_newmember"/>

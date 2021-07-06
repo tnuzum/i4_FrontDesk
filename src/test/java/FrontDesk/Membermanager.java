@@ -81,7 +81,7 @@ public  SoftAssert softAssertion = new SoftAssert();
   		}
   	
   	
-  @Test(enabled = false, priority = 1, description = "Make a payment using different card")
+  @Test(enabled = true, priority = 1, description = "Make a payment using different card")
   public void memebermanager_takepayment() throws Exception {
 	  
 	  takepay = new Membermanager_takepaymentPO(driver);
@@ -149,7 +149,7 @@ public  SoftAssert softAssertion = new SoftAssert();
 	  
 	  
   }
-  @Test(enabled = false, priority = 2, description = "Make a payment using card on File")
+  @Test(enabled = true, priority = 2, groups = {"Regression"}, description = "Make a payment using card on File")
   public void memebermanager_takepayment_Cardonfile() throws Exception {
 	  
 	  takepay = new Membermanager_takepaymentPO(driver);

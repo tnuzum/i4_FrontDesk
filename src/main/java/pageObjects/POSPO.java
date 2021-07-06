@@ -56,7 +56,7 @@ public class POSPO {
 
 	By processPayment1 = By.id("ContentPlaceHolder1_lnkbtnProcesspayment");
 
-	By submitbtn = By.xpath("//a[@id='ContentPlaceHolder1_ucAcceptCCPayment_lnkSubmit']");
+	By submitbtn = By.cssSelector("a#ContentPlaceHolder1_ucAcceptCCPayment_lnkSubmit");
 
 	By history = By.xpath("//a[@class='btn btn-primary btn-sm mrs']");
 
