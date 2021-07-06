@@ -1,32 +1,47 @@
 package resources;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
+import java.io.File;
 
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
+
+import pageObjects.DashboardPO;
 import pageObjects.HomePO;
+import pageObjects.LoginPO;
 import pageObjects.POSPO;
 import pageObjects.QuickSalesPO;
 
 public class CustomActions extends base {
-	
+
+
+
 	public CustomActions() {
 		
 	}
 	
-	
-    
+
+
 	public void setDriver(WebDriver wd) {
 	driver = wd;
 	}
 	
-	    
-		public String loginClub(String barcodeId, String password) throws InterruptedException {
+	  
+		
+		public String loginClub(String clubBarcodeId, String clubPassword) throws InterruptedException {
 
 		pageObjects.LoginPO l = new pageObjects.LoginPO(driver);
 
-		l.getUserNameInputField().sendKeys(barcodeId);
+		l.getUserNameInputField().sendKeys(clubBarcodeId);
 
-		l.getPasswordInputField().sendKeys(password);
+		l.getPasswordInputField().sendKeys(clubPassword);
 		Thread.sleep(2000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("arguments[0].click();", l.getLoginButton());
@@ -41,15 +56,15 @@ public class CustomActions extends base {
 		pageObjects.LoginPO L = new pageObjects.LoginPO(driver);
 		
 		L.getEmpId().sendKeys(BarcodeIDEmp);
-		System.out.println(PasswordEmp);
+		//System.out.println(PasswordEmp);
 		L.getEmpPW().sendKeys(PasswordEmp);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("arguments[0].click();", L.getEmpLogin());
 		//L.getEmpLogin().click();
 		return null;
 	}
-	public String LoginFD(String barcodeId, String password, String BarcodeIDEmp, String PasswordEmp) throws InterruptedException{
-	this.loginClub(barcodeId, password);
+	public String LoginFD(String clubBarcodeId, String clubPassword, String BarcodeIDEmp, String PasswordEmp) throws InterruptedException{
+	this.loginClub(clubBarcodeId, clubPassword);
 	Thread.sleep(2000);
 		this.loginEmp(BarcodeIDEmp, PasswordEmp);
 		
@@ -66,7 +81,15 @@ public class CustomActions extends base {
 	
 	}
 	
-public Object POSTab() {
+	public Object Membermanagertab() {
+		
+		HomePO H = new HomePO(driver);
+		H.getmembermanagertab().click();
+		
+		return null;
+	}
+	
+    public Object POSTab() {
 		
 		HomePO H = new HomePO(driver); 		
 		
@@ -85,7 +108,7 @@ public Object POSTab() {
 }	
 	public Object existingMember() {
 		QuickSalesPO s = new QuickSalesPO(driver);
-	s.getexistingMember1().click();
+	//s.getexistingMember1().click();
 		return null;
 }	
 	
@@ -99,12 +122,36 @@ public Object POSTab() {
 		//P.getitemBarcode1().click();
 		return null;
 	}
-	public String itemBarcodedemo(String barcodetext) {
-		POSPO P = new POSPO(driver);
-		P.getBarcodetext().sendKeys(barcodetext);
-		return null;
-		
-		
+	
+
+	
+
+	public  void takescreenshot() throws Exception {
+	
+	
+
+		  try {
+			TakesScreenshot ts = ((TakesScreenshot)driver);
+			  
+			   File SrcFile = ts.getScreenshotAs(OutputType.FILE);
+			  
+			 // File DestFile = new File("./Screenshot/AddGuest_details");
+			   
+			   String timestamp = new SimpleDateFormat("MM_dd_yyyy__hh_mm_ss").format(new Date());
+			  
+			  FileUtils.copyFile(SrcFile, new File("./Screenshot/classname"+timestamp+".png"));
+			  
+			 
+			  
+		} catch (WebDriverException e) {
+			
+		} catch (IOException e) {
+			
+		}
+	
 	}
 	
-}
+	}
+
+	
+

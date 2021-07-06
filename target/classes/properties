@@ -1,55 +1,30 @@
 browser = IE
-LoginPage = https://frontdesk.test-jfisoftware.com/Main/Views/EmployeeLogin.aspx
-!https://frontdesk.test-jfisoftware.com/main/views/cover.aspx
-employeeBarcodeId = Uma
-employeePassword = blue1234
-searchlastname = t
+
+clubLoginPage = https://frontdesk.test-jfisoftware.com/Main/Views/Login.aspx
+EmpLoginPage = https://frontdesk.test-jfisoftware.com/Main/Views/EmployeeLogin.aspx
+!https://frontdesk.test-jfisoftware.com/main/views/cover.aspxc
+clubBarcodeId = qatraining
+clubPassword = training125
+EmpBarcodeID = Autotesting
+EmpPassword = Test1234
+barcodeid = G1196
+
 payment = mastercard
-cvv = 789
+
 
 /*  Quicksale_newmember */
-memberfirstname = sarswati
-memberlastname = bushhhh
-memberaddress = Ionview
-membercity = Ottawa
-memberstate = Canada
-memberdateofbirth = 10/05/1990
-memberbillingname = peter
-membermobilenumber = 9874589615
-memberworknumber = 6548425863
-memberemail = ptechbr456@gmil.com
-creditcardnum = 5454545454545454
-cardexpmonth = 12
-cardexpyear = 2022
 
-/* Quicksale_renewal */
-
+cardholdername = Test
 searchfirstname = a
 cardtype =  Visa
 visacard = 4111111111111111
-creditcardnummc = 5454545454545454
+Mccard = 5454545454545454
 cardexpmonthfield = 12
-cardexpyearfield = 2022
-Paymentoption = paynow
-paymentmethod = creditcard
+cardexpyearfield = 2024
+Paymentoption = PayNow
+paymentmethod = cash
 cvvnum = 562
-
-/* Add guest */
-guestfirstname = krishnarao
-guestlastname = kinnera   
-dateofbirth = 10/05/1992
-addressfield = rosemountdrive
-city = Toronto
-Zipcode = 523687
-guestpassperiod = 4
-email = grillgarden@gmail.com
-workphone = 9856145278
-familyfirstname = Aishwaryaa
-homephone = 6478426512
-
-/* Change request */
-
-firstletter = t
+zip = M1K5w4
 
 
 

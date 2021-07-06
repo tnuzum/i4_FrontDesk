@@ -13,9 +13,9 @@ import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.CapabilityType;
 
 public class base {
-	public static WebDriver driver;
-	public static Properties prop;
-	static String projectPath = System.getProperty("user.dir");
+	public WebDriver driver;
+	public Properties prop;
+    static String projectPath = System.getProperty("user.dir");
 
 	public WebDriver initializeDriver() throws Exception {
 

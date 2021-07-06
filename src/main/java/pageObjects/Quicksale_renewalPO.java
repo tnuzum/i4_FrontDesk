@@ -53,6 +53,14 @@ public class Quicksale_renewalPO {
 	
 	By Addfamilymember = By.id("btnAddFamily");
 	
+	By Addexistingfamilymeber = By.xpath("//a[@onclick='return existingMemberLookup()']"); 
+	
+	By familymemberbarcode = By.xpath("//input[@id='txtBarCodeAddExistingMember']");
+	
+	By searchfamilybtn = By.xpath("//a[@id='btnAddExistingMemberSearch']");
+	
+	By selectbtn = By.xpath("//a[@onclick='CloseAddExistingMemberWithValue(this);']");
+	
 	By familyfirstname = By.id("txtFirstName");
 	
 	By familyphone = By.id("txtWorkPhone");
@@ -108,6 +116,8 @@ public class Quicksale_renewalPO {
 	By gotohome = By.id("btnHome");
 	
 	By btnapprove = By.xpath("//a[@id='btnApprove']");
+	
+	By effctivedate = By.xpath("//input[@id='ctl00_ContentPlaceHolder1_txtEffectiveDate']");
 
 	public Quicksale_renewalPO(WebDriver driver) {
 		
@@ -201,6 +211,26 @@ public class Quicksale_renewalPO {
 		return driver.findElement(Addfamilymember);
 	
 	}
+	public WebElement getAddexistingfamilymeber()
+	{
+		return driver.findElement(Addexistingfamilymeber);
+	
+	}
+	public WebElement getfamilymemberbarcode()
+	{
+		return driver.findElement(familymemberbarcode);
+	
+	}
+	public WebElement getsearchfamilybtn()
+	{
+		return driver.findElement(searchfamilybtn);
+	
+	}
+	public WebElement getselectbtn()
+	{
+		return driver.findElement(selectbtn);
+	
+	}
 	public WebElement getfamilyfirstname()
 	{
 		return driver.findElement(familyfirstname);
@@ -238,6 +268,11 @@ public class Quicksale_renewalPO {
 	public WebElement geteditplanbutton()
 	{
 		return driver.findElement(editplanbutton);
+	
+	}
+	public WebElement geteffctivedate()
+	{
+		return driver.findElement(effctivedate);
 	
 	}
 	public WebElement getokbtn()

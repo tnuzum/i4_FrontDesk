@@ -149,7 +149,7 @@ public  SoftAssert softAssertion = new SoftAssert();
 	  
 	  
   }
-  @Test(enabled = true, priority = 2, description = "Make a payment using card on File")
+  @Test(enabled = true, priority = 2, groups = {"Regression"}, description = "Make a payment using card on File")
   public void memebermanager_takepayment_Cardonfile() throws Exception {
 	  
 	  takepay = new Membermanager_takepaymentPO(driver);
