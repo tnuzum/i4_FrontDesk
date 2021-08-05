@@ -84,17 +84,33 @@ public class QuickSales_newmember extends base {
 		ca.LoginFD(clubBarcodeId,clubPassword,BarcodeIDEmp,PasswordEmp);
 		Thread.sleep(2000);
 		
-		
-		
-	}
-
-	@Test(priority = 1, groups = {"Regression"})
-	public void QuickSalesTest() throws Exception {
-		QuickSalesPO quicksale = new QuickSalesPO(driver);
-
+		quicksale = new QuickSalesPO(driver);
 		Assert.assertEquals(driver.getTitle(), "Member Manager");
 		jse.executeScript("arguments[0].click();", quicksale.getquicksalebtn());
+		
+	}
+	
+	@Test(priority = 1)
+	public void QuickSales_Pagenavigation() throws Exception {
+		
+		//Assert.assertEquals(driver.findElement(By.xpath("//a[contains(text(),'Quick Sales')]")),"Quick Sales");
+		Thread.sleep(1000);
+		Assert.assertTrue(driver.findElement(By.xpath("//h3[@class='tile-title']")).getText().contains("New Contract"));
+		
+		jse.executeScript("arguments[0].click();", quicksale.getnewContract1());
+		Assert.assertTrue(quicksale.getSearchplanTitle().getText().contains("Search Plans"));
+		Assert.assertTrue(quicksale.getSelectplanTitle().getText().contains("1. Select Plan"));
+		jse.executeScript("arguments[0].click();", quicksale.getnewmemberbtn());
+		Thread.sleep(1000);
+		
+		Assert.assertTrue(quicksale.getrequiredFieldsTitle().getText().contains("Required Fields"));
+		jse.executeScript("arguments[0].click();", quicksale.gethomebtn());
+	}
 
+	@Test(priority = 2, groups = {"Regression"})
+	public void QuickSalesTest() throws Exception {
+		//QuickSalesPO quicksale = new QuickSalesPO(driver);	
+		jse.executeScript("arguments[0].click();", quicksale.getquicksalebtn());
 		jse.executeScript("arguments[0].click();", quicksale.getnewContract1());
 
 		Thread.sleep(2000);

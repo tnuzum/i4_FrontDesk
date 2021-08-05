@@ -1,4 +1,4 @@
-package FrontDesk;
+package Prod_Frontdesk;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -24,15 +24,14 @@ import pageObjects.ApptAdminPO;
 import pageObjects.DashboardPO;
 import pageObjects.LoginPO;
 import resources.CustomActions;
-
 import resources.base;
 
 @Listeners(resources.Listeners.class)
 
-public class Apptadmintest extends base {
-
+public class ApptAdminProd_Test extends base {
+	
 	private static JavascriptExecutor jse;
-	private static String memberbarcode = "110415";
+	private static String memberbarcode = "WEB-101132";
 	public WebDriver driver;
 
 	public SoftAssert softAssertion = new SoftAssert();
@@ -47,34 +46,28 @@ public class Apptadmintest extends base {
 
 	public ApptAdminPO appt;
 	public CustomActions ca;
-	
-	
 
-	public Apptadmintest() {
+	public ApptAdminProd_Test() {
 		ca = new CustomActions();
-		
 
 	}
 
-	
-	
 	@BeforeClass
 	public void initialize() throws Exception {
 		driver = initializeDriver();
 		ca.setDriver(driver);
 
-		driver.get(prop.getProperty("clubLoginPage"));
-
+		driver.get(prop.getProperty("ProcClubLoginpage"));
 		d = new DashboardPO(driver);
-		clubBarcodeId = prop.getProperty("clubBarcodeId");
-		clubPassword = prop.getProperty("clubPassword");
-
-		// driver - initializeDriver();
-		// driver.get(prop.getProperty("EmpLoginPage"));
-
+		clubBarcodeId = prop.getProperty("ClubUserName");
+		clubPassword = prop.getProperty("ClubPassword1");
+		
+		//driver - initializeDriver();
+		//driver.get(prop.getProperty("EmpLoginPage"));
+		
 		L = new LoginPO(driver);
-		BarcodeIDEmp = prop.getProperty("EmpBarcodeID");
-		PasswordEmp = prop.getProperty("EmpPassword");
+		BarcodeIDEmp = prop.getProperty("EmpUserName");
+		PasswordEmp = prop.getProperty("EmpPassword1");
 
 		jse = (JavascriptExecutor) driver;
 		appt = new ApptAdminPO(driver);
@@ -460,3 +453,6 @@ public class Apptadmintest extends base {
 		driver = null;
 	}
 }
+
+
+

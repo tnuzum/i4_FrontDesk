@@ -29,6 +29,8 @@ public class POSPO {
 	//By itemBarcodeSearch1 = By.xpath("//a[@type=\"submit\"]");
 	By itemSelect = By.id("ContentPlaceHolder1_grdItems_btnSelect_4");
 	
+	By prod$1itemselect = By.id("ContentPlaceHolder1_grdItems_btnSelect_2");
+	
 	By closebtn = By.xpath("//input[@name='ctl00$ContentPlaceHolder1$btnCloseCart']");
 	
 	By proceedBtn = By.id("ContentPlaceHolder1_lnkBtnTotal");
@@ -109,6 +111,10 @@ public class POSPO {
 	public WebElement getitemSelect()
 	{
 		return driver.findElement(itemSelect);
+	}
+	public WebElement getprod$1itemselect()
+	{
+		return driver.findElement(prod$1itemselect);
 	}
 	public WebElement getproceedBtn()
 	{

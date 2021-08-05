@@ -10,7 +10,15 @@ public class QuickSalesPO {
 
 	By quicksalebtn = By.xpath("//a[@id='lnkQuickSal']");
 	
+	By homebtn = By.xpath("//a[contains(text(),'Home')]");
+	
 	By newContract1 = By.xpath("//a[@id = 'lnkNewContract']");
+	
+	By SearchplanTitle = By.xpath("//h6[contains(text(),'Search Plans')]");
+	
+	By SelectplanTitle = By.xpath("//h6[contains(text(),'1. Select Plan')]");
+	
+	By requiredFieldsTitle = By.xpath("//a[contains(text(),'Required Fields')]");
 
     By newmemberbtn = By.xpath("//button[@id='btnNewMember']");
     
@@ -96,9 +104,26 @@ public class QuickSalesPO {
 			return driver.findElement(quicksalebtn);
 		
 		}
+	    public WebElement gethomebtn() {
+			
+			return driver.findElement(homebtn);
+		
+		}
 		public WebElement getnewContract1()
 		{
 			return driver.findElement(newContract1);
+		}
+		public WebElement getSearchplanTitle()
+		{
+			return driver.findElement(SearchplanTitle);
+		}
+		public WebElement getSelectplanTitle()
+		{
+			return driver.findElement(SelectplanTitle);
+		}
+		public WebElement getrequiredFieldsTitle()
+		{
+			return driver.findElement(requiredFieldsTitle);
 		}
 		
 		public WebElement getnewmemberbtn()

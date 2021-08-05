@@ -13,9 +13,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 
-import pageObjects.DashboardPO;
 import pageObjects.HomePO;
-import pageObjects.LoginPO;
 import pageObjects.POSPO;
 import pageObjects.QuickSalesPO;
 
@@ -84,7 +82,8 @@ public class CustomActions extends base {
 	public Object Membermanagertab() {
 		
 		HomePO H = new HomePO(driver);
-		H.getmembermanagertab().click();
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		jse.executeScript("arguments[0].click();",H.getmembermanagertab());
 		
 		return null;
 	}

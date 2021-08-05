@@ -15,15 +15,17 @@ public class ChangerequestPO {
 	
 	By membermanager = By.xpath("//a[@id='lnkMemberManager']");
 	
-	By searchwithfirstname = By.xpath("//input[@id='ContentPlaceHolder1_txtFirstName']");
+	By Memberbarcode = By.cssSelector("input#ContentPlaceHolder1_txtBarCode");
 	
-	By searchallclubs = By.xpath("//a[@id='ContentPlaceHolder1_btnSubmit3']");
+	By searchAllClubsbtn = By.cssSelector("a#ContentPlaceHolder1_btnSubmit3");
 	
-	By managebtn = By.xpath("//input[@id='ContentPlaceHolder1_grdMemberSearch_btnManage_2']");
+	By Managebtn = By.xpath("//input[@value='Manage']");
 	
 	By chechinbtn = By.xpath("//input[@id='ContentPlaceHolder1_grdMemberSearch_btnCheckIn_2']");
 	
 	By changerequest = By.xpath("//a[@id='ContentPlaceHolder1_changeRequestLink']");
+	
+	By ChangerequestTitle = By.xpath("//a[@title='Change Request']");
 	
 	By familymember = By.xpath("//a[@id='ContentPlaceHolder1_btnFamilyMember']");
 	
@@ -60,19 +62,19 @@ public class ChangerequestPO {
 			return driver.findElement(membermanager);
 		
 		}
-	 public WebElement getsearchwithfirstname() {
+	 public WebElement getMemberbarcode() {
 			
-			return driver.findElement(searchwithfirstname);
+			return driver.findElement(Memberbarcode);
 		
 		}
-	 public WebElement getsearchallclubs() {
+	 public WebElement getsearchAllClubsbtn() {
 			
-			return driver.findElement(searchallclubs);
+			return driver.findElement(searchAllClubsbtn);
 		
 		}
-	 public WebElement getmanagebtn() {
+	 public WebElement getManagebtn() {
 			
-			return driver.findElement(managebtn);
+			return driver.findElement(Managebtn);
 		
 		}
 	 public WebElement getchechinbtn() {
@@ -83,6 +85,11 @@ public class ChangerequestPO {
 	 public WebElement getchangerequest() {
 			
 			return driver.findElement(changerequest);
+		
+		}
+	 public WebElement getChangerequestTitle() {
+			
+			return driver.findElement(ChangerequestTitle);
 		
 		}
 	 public WebElement getbillinginfobtn() {
