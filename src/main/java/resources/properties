@@ -1,12 +1,14 @@
 browser = IE
 
+Jolurl = https://yourclub.test-jfisoftware.com/JOL/clubs/1942
+
 clubLoginPage = https://frontdesk.test-jfisoftware.com/Main/Views/Login.aspx
 EmpLoginPage = https://frontdesk.test-jfisoftware.com/Main/Views/EmployeeLogin.aspx
 !https://frontdesk.test-jfisoftware.com/main/views/cover.aspxc
 clubBarcodeId = qatraining
 clubPassword = training125
 EmpBarcodeID = Autotesting
-EmpPassword = Test1234
+EmpPassword = Testing1234
 barcodeid = G1196
 
 payment = mastercard
@@ -26,6 +28,15 @@ paymentmethod = cash
 cvvnum = 562
 zip = M1K5w4
 
+/* Production*/
 
+JOLProdURL = https://www.yourclub.net/JOL/Clubs/605
+ProcClubLoginpage = https://frontdesk.jfisoftware.com/main/views/Login.aspx
+ProdEmpLoginPage = https://frontdesk.jfisoftware.com/Main/Views/EmployeeLogin.aspx
+ClubUserName = aphelionuser
+ClubPassword1 = Fitness1
+EmpUserName = umaprod
+EmpPassword1 = Ganesh@77777
+barcodeid1 = WEB-101132
 
 

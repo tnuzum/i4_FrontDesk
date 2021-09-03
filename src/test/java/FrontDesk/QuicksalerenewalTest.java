@@ -105,7 +105,7 @@ public void initialize() throws Exception {
 
 }
 
-@Test(enabled = true, priority = 1, description = "Quicksale_renewal contract, making Payment with Cash")
+@Test(enabled = true, priority = 1, groups = {"Regression"}, description = "Quicksale_renewal contract, making Payment with Cash")
 public void renewalcontract() throws Exception {
 
 	jse.executeScript("arguments[0].click();", ren.getrenewal());
@@ -287,7 +287,7 @@ public void renewalcontract() throws Exception {
 
 }
 
-@Test(enabled = true, priority = 2, description = "Quicksale_renewal contract, making Payment with Creditcard")
+@Test(enabled = true, priority = 2, groups = {"Regression"}, description = "Quicksale_renewal contract, making Payment with Creditcard")
 public void renewalcontract_Creditcard() throws Exception {
 	
 
@@ -440,53 +440,53 @@ public void renewalcontract_Creditcard() throws Exception {
 
 	jse.executeScript("arguments[0].click();", ren.getproceedplanpayment());
 	
-	driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-
-	String Paymentopt = prop.getProperty("Paymentoption");
-
-	if (Paymentopt.equals("PayNow")) {
-		jse.executeScript("arguments[0].click();", ren.getpaynowbtn());
-
-		jse.executeScript("arguments[0].click();", ren.getsplitpaymentno());
-
-		jse.executeScript("arguments[0].click();", ren.getpaymentbycreditcard());
-		jse.executeScript("arguments[0].click();", ren.getselectcardtype());
-		Thread.sleep(2000);
-
-		Select select1 = new Select(driver.findElement(By.id("creditCardTypes")));
-
-		if (cardtype.equals("Visa")) {
-			select1.selectByIndex(2);
-			ren.getcreditcardfield().sendKeys(visacard);
-		}
-		if (cardtype.equals("Mc")) {
-			select1.selectByIndex(1);
-			ren.getcreditcardfield().sendKeys(mastercard);
-		}
-
-		ren.getcardexpmonth().sendKeys(cardexpmonthfield);
-		ren.getcardexpyear().clear();
-		ren.getcardexpyear().sendKeys(cardexpyearfield);
-		ren.getcvvnum().sendKeys(cvvnum);
-		ren.getnameoncard().sendKeys(s3);
-		// ren.getmemaddress().sendKeys(address1);
-		// ren.getmemcity().sendKeys(city);
-		// ren.getmemstate().sendKeys(state);
-		ren.getmemzip().sendKeys(zip);
-	}
-
-	if (Paymentopt.equals("PayLater")) {
-
-		jse.executeScript("arguments[0].click();", ren.getpaylaterbtn());
-	}
-
-	jse.executeScript("arguments[0].click();", ren.getproceedgotobilling());
-
-	jse.executeScript("arguments[0].click();", ren.getbtnapprove());
+//	driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+//
+//	String Paymentopt = prop.getProperty("Paymentoption");
+//
+//	if (Paymentopt.equals("PayNow")) {
+//		jse.executeScript("arguments[0].click();", ren.getpaynowbtn());
+//
+//		jse.executeScript("arguments[0].click();", ren.getsplitpaymentno());
+//
+//		jse.executeScript("arguments[0].click();", ren.getpaymentbycreditcard());
+//		jse.executeScript("arguments[0].click();", ren.getselectcardtype());
+//		Thread.sleep(2000);
+//
+//		Select select1 = new Select(driver.findElement(By.id("creditCardTypes")));
+//
+//		if (cardtype.equals("Visa")) {
+//			select1.selectByIndex(2);
+//			ren.getcreditcardfield().sendKeys(visacard);
+//		}
+//		if (cardtype.equals("Mc")) {
+//			select1.selectByIndex(1);
+//			ren.getcreditcardfield().sendKeys(mastercard);
+//		}
+//
+//		ren.getcardexpmonth().sendKeys(cardexpmonthfield);
+//		ren.getcardexpyear().clear();
+//		ren.getcardexpyear().sendKeys(cardexpyearfield);
+//		ren.getcvvnum().sendKeys(cvvnum);
+//		ren.getnameoncard().sendKeys(s3);
+//		// ren.getmemaddress().sendKeys(address1);
+//		// ren.getmemcity().sendKeys(city);
+//		// ren.getmemstate().sendKeys(state);
+//		ren.getmemzip().sendKeys(zip);
+//	}
+//
+//	if (Paymentopt.equals("PayLater")) {
+//
+//		jse.executeScript("arguments[0].click();", ren.getpaylaterbtn());
+//	}
+//
+//	jse.executeScript("arguments[0].click();", ren.getproceedgotobilling());
+//
+//	jse.executeScript("arguments[0].click();", ren.getbtnapprove());
 
 }
 
-@Test(enabled = true, priority = 3, description = "Quicksale_renewal contract, making Split Payment with Cash and Creditcard")
+@Test(enabled = true, priority = 3, groups = {"Regression"}, description = "Quicksale_renewal contract, making Split Payment with Cash and Creditcard")
 public void renewalcontract_splitpayment() throws Exception {
 	ren = new Quicksale_renewalPO(driver);
 
@@ -700,7 +700,7 @@ public void selectDateByJS(WebDriver driver, WebElement element, String dateVal)
 
 }
 
-@AfterClass(enabled = true)
+@AfterClass(enabled = false)
 public void teardown() {
 
 	driver.close();

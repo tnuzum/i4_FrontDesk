@@ -73,6 +73,7 @@ public class LoginPageTest extends base {
 	public void teardown() {
 
 		driver.close();
+		driver.quit();
 		driver = null;
 	}
 

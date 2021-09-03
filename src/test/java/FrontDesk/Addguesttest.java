@@ -1,8 +1,11 @@
 package FrontDesk;
 
+import java.security.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -11,9 +14,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -26,7 +27,7 @@ import resources.base;
 
 public class Addguesttest extends base {
 
-	private static String guestfirstname = "Autotest";
+	private static String guestfirstname = "Autote3";
 	private static String guestlastname = "test1234";
 	private static String dateofbirth = "10/05/1990";
 	private static String addressfield = "Southpark";
@@ -35,7 +36,7 @@ public class Addguesttest extends base {
 	private static String guestpass = "3";
 	private static String guestemail = "autotest12@gmail.com";
 	private static String guestphone = "6478529856";
-	private static String familyfirstname = "Test1212";
+	private static String familyfirstname = "Test121222";
 	private static String homeph = "9856412375";
 	private static JavascriptExecutor jse;
 
@@ -85,7 +86,7 @@ public class Addguesttest extends base {
 			}
 	 
  
-	@Test(priority = 1, description = "Add guest")
+	@Test(priority = 1, groups = {"Regression"}, description = "Add guest")
 
 	public void addguest() throws Exception {
 	
@@ -98,6 +99,12 @@ public class Addguesttest extends base {
 		
 		Thread.sleep(2000);
 		Assert.assertEquals(driver.getTitle(), "Member Manager");
+		
+		DateFormat df = new SimpleDateFormat("MM/d/yyyy HH:mm:ss");// HH:mm:ss
+		Calendar today = Calendar.getInstance();
+		String currentdate = df.format(today.getTime());
+		System.out.println("Current date is  " + currentdate);
+		
 	 
         jse.executeScript("arguments[0].click();",gus.getAddguestbtn());
         
@@ -181,6 +188,7 @@ public class Addguesttest extends base {
 	public void teardown() {
 
 		driver.close();
+		driver.quit();
 		driver = null;
 	}
 
