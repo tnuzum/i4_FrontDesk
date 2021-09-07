@@ -22,14 +22,16 @@ public class POSPO {
 	
 	By itemBarcode1 = By.id("ContentPlaceHolder1_btnSelect");
 	
+	By itembarcode = By.id("ContentPlaceHolder1_txtBarcodeID");
+	
     By  inventorybtn = By.xpath("//input[@id='ContentPlaceHolder1_rbtnItemTypeList_0']");
 	
 	By  itemsearch = By.xpath("//a[@id='ContentPlaceHolder1_btnSearch']");
 	
 	//By itemBarcodeSearch1 = By.xpath("//a[@type=\"submit\"]");
-	By itemSelect = By.id("ContentPlaceHolder1_grdItems_btnSelect_4");
+	By itemSelect = By.id("ContentPlaceHolder1_grdItems_btnSelect_0");//ContentPlaceHolder1_grdItems_btnSelect_0
 	
-	By prod$1itemselect = By.id("ContentPlaceHolder1_grdItems_btnSelect_2");
+	By itemSelect1 = By.id("ContentPlaceHolder1_grdItems_btnSelect_0");
 	
 	By closebtn = By.xpath("//input[@name='ctl00$ContentPlaceHolder1$btnCloseCart']");
 	
@@ -100,6 +102,10 @@ public class POSPO {
 	{
 		return driver.findElement(itemBarcode1);
 	}
+	public WebElement getitembarcode()
+	{
+		return driver.findElement(itembarcode);
+	}
 	public WebElement getinventorybtn()
 	{
 		return driver.findElement(inventorybtn);
@@ -112,10 +118,11 @@ public class POSPO {
 	{
 		return driver.findElement(itemSelect);
 	}
-	public WebElement getprod$1itemselect()
+	public WebElement getitemSelect1()
 	{
-		return driver.findElement(prod$1itemselect);
+		return driver.findElement(itemSelect1);
 	}
+	
 	public WebElement getproceedBtn()
 	{
 		return driver.findElement(proceedBtn);

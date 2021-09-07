@@ -26,6 +26,7 @@ public class POS_Test extends base {
 	
 	private static JavascriptExecutor jse;
 	private static String couponrefference = "4568";
+	private static String productBarcode = "14063454";
 	public SoftAssert softAssertion = new SoftAssert();
 	
 	DashboardPO d;
@@ -107,6 +108,7 @@ public class POS_Test extends base {
 		jse.executeScript("arguments[0].click();", po.getitemBarcode1());
 		Assert.assertEquals("Item ID Lookup", driver.findElement(By.xpath("//a[@title='Item ID Lookup']")).getText());
 		jse.executeScript("arguments[0].click();", po.getinventorybtn());
+		po.getitembarcode().sendKeys(productBarcode);
 		jse.executeScript("arguments[0].click();", po.getitemsearch());
 		jse.executeScript("arguments[0].click();", po.getitemSelect());
 		jse.executeScript("arguments[0].click();", po.getproceedBtn());
@@ -210,6 +212,7 @@ public class POS_Test extends base {
 		jse.executeScript("arguments[0].click();",po.getselectmemberbtn());
 		jse.executeScript("arguments[0].click();",po.getitemBarcode1());
 		jse.executeScript("arguments[0].click();",po.getinventorybtn());
+		po.getitembarcode().sendKeys(productBarcode);
 		jse.executeScript("arguments[0].click();",po.getitemsearch());
 		jse.executeScript("arguments[0].click();",po.getitemSelect());
 		jse.executeScript("arguments[0].click();",po.getproceedBtn());
@@ -230,7 +233,6 @@ public class POS_Test extends base {
 		@AfterClass(enabled =true)
 		public void teardown() {
 
-			driver.close();
 			driver.quit();
 			driver = null;
 		}

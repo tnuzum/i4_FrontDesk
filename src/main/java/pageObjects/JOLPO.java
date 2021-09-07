@@ -19,43 +19,23 @@ public class JOLPO extends base {
 	
 	By selectcity = By.xpath("//Select[@id='ddlFilter']");
 	
-	By clubfilter = By.xpath("(//div[@class='contentCenterFix leftMargin10'])[6]");
-	
 	By clubheader = By.xpath("//h2[contains(text(),'Executive Fitness Club')]");
 	
 	By clublocation = By.xpath("//h2[contains(text(),'Houston, TX')] ");
 	
 	By clubimage = By.xpath("//div[@class='span2 text-center']/img");
 	
-	By Viewplanslink = By.xpath("(//a[contains(text(), 'View Plans')])[6]");
-	
 	By vistedlink = By.xpath("(//a[contains(text(),'Have You Visited Us Before? ')])");
 	
-	By featuredplanslabel = By.xpath("(//div[@class='span12 text-center planHeader'])[2]");
-	
-	By selectplan = By.xpath("//h2[contains(text(),'!umas open ended plan')]");
-	
-	By continueplan = By.xpath("(//a[contains(text(),'Continue')])[9]");
+	By featuredplanslabel = By.xpath("//h1[contains(text(),'Featured Plans')]");
 	
 	By changeplanlink = By.xpath("//a[contains(text(),'Change Plan')]");
 	
-	By planheader = By.xpath("//div[@class='span10 offset1 text-center allPlanText']/h1");
+	By planheader = By.tagName("h1");
 	
 	By continuebtn = By.xpath("//a[contains(text(),'Continue')]");
 	
-	//production
-	By Prod_viewplanslink = By.xpath("//a[@href='/JOL/Plans/605/1']");
-	
-	By Select_Familyplan = By.xpath("//h2[contains(text(),'Family Plan')]");
-	
-	By FamilyPlan_Continue = By.xpath("//a[@href='/JOL/PlanDetails/605/1/30/0']");
-	
-    By CCNofield = By.cssSelector("input#CCNo");
-	
-	By CCNamefield = By.cssSelector("input#CCName");
-	
-	By CCExpfield = By.cssSelector("input#CCExp");
-	
+	By ViewAllPlans = By.xpath("//h1[contains(text(),'View All Plans')]");
 	
 	//member information
 	By backbtn = By.xpath("//a[contains(text(),'Back')]");
@@ -114,11 +94,7 @@ public class JOLPO extends base {
 		return driver.findElement(Selectcityheader);
 	
 	}
-   public WebElement getclubfilter() {
-		
-		return driver.findElement(clubfilter);
-	
-	}
+
    public WebElement getselectcity() {
 		
 		return driver.findElement(selectcity);
@@ -139,12 +115,7 @@ public class JOLPO extends base {
 		return driver.findElement(clubimage);
 	
 	}
-   public WebElement getViewplanslink() {
-		
-		return driver.findElement(Viewplanslink);
-	
-	}
- 
+  
    public WebElement getvistedlink() {
 		
 		return driver.findElement(vistedlink);
@@ -155,16 +126,12 @@ public class JOLPO extends base {
 		return driver.findElement(featuredplanslabel);
 	
 	}
-   public WebElement getselectplan() {
+   public WebElement getViewAllPlans() {
 		
-		return driver.findElement(selectplan);
-	
-	}
-   public WebElement getcontinueplan() {
-		
-		return driver.findElement(continueplan);
-	
-	}
+ 		return driver.findElement(ViewAllPlans);
+ 	
+ 	}
+
    public WebElement getchangeplanlink() {
 		
 		return driver.findElement(changeplanlink);
@@ -279,36 +246,6 @@ public class JOLPO extends base {
  	
  	}
    
-   //production
-   public WebElement getProd_viewplanslink() {
-		
- 		return driver.findElement(Prod_viewplanslink);
- 	
- 	}
-   public WebElement getSelect_Familyplan() {
-		
- 		return driver.findElement(Select_Familyplan);
- 	
- 	}
-   public WebElement getFamilyPlan_Continue() {
-		
- 		return driver.findElement(FamilyPlan_Continue);
- 	
- 	}
-   public WebElement getCCNofield() {
-		
- 		return driver.findElement(CCNofield);
- 	
- 	}
-   public WebElement getCCNamefield() {
-		
- 		return driver.findElement(CCNamefield);
- 	
- 	}
-   public WebElement getCCExpfield() {
-		
- 		return driver.findElement(CCExpfield);
- 	
- 	}
+
 
 }
