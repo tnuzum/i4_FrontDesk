@@ -1,6 +1,5 @@
 package FrontDesk;
 
-import java.security.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -15,6 +14,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -24,7 +24,7 @@ import pageObjects.DashboardPO;
 import pageObjects.LoginPO;
 import resources.CustomActions;
 import resources.base;
-
+@Listeners(resources.Listeners.class)
 public class Addguesttest extends base {
 
 	private static String guestfirstname = "Autote3";

@@ -20,10 +20,9 @@ import resources.base;
 
 @Listeners(resources.Listeners.class)
 
-public class JOLProd_Test extends base{
-	
-	
-	private static String firstname = "uma11";
+public class JOLProd_Test extends base {
+
+	private static String firstname = "Auto11";
 	private static String lastname = "tes12222";
 	private static String address1 = "caaabbgg";
 	private static String city = "eretht";
@@ -70,27 +69,46 @@ public class JOLProd_Test extends base{
 		Assert.assertTrue(jol.getSelectcityheader().getText().contains("Filter By Location:"));
 //System.out.println(jol.getSelectcityheader().getText());
 
+		List<WebElement> clubs = driver.findElements(By.tagName("h2"));
+
+		System.out.println(clubs.size());
+
+		for (int i = 0; i < clubs.size(); i++) {
+
+			System.out.println(clubs.get(i).getText());
+
+		}
+
 	}
 
 	@Test(priority = 2, description = "Select Club")
 
 	public void SelectClub() throws Exception {
-		Actions action = new Actions(driver);
-		action.sendKeys(Keys.PAGE_DOWN).perform();
-		
 		Assert.assertEquals("Executive Fitness Club", jol.getclubheader().getText());
 		Assert.assertTrue(jol.getclublocation().isDisplayed());
 		Assert.assertTrue(jol.getclubimage().isDisplayed());
-		Assert.assertTrue(jol.getProd_viewplanslink().getText().contains("View Plans"));
 
-		jse.executeScript("arguments[0].click();", jol.getProd_viewplanslink());
+		int viewplan = driver.findElements(By.xpath("//a[contains(text(),'View Plans')]")).size();
+		// System.out.println(viewplan);
+		Thread.sleep(2000);
+		for (int i = 0; i < viewplan; i++) {
+
+			String club = driver.findElements(By.xpath("//div[@class='span8']/div/h2")).get(i).getText();
+
+			if (club.contains("Executive Fitness Club")) {
+				jse.executeScript("arguments[0].click();",
+						driver.findElements(By.xpath("//a[contains(text(),'View Plans')]")).get(i));
+
+				break;
+
+			}
+		}
 
 	}
-	
-	@Test( priority = 3, description = "Select Plan and Change Plan")
+
+	@Test(priority = 3, description = "Select Plan and Change Plan")
 
 	public void SelectPlan() throws Exception {
-
 		Actions action = new Actions(driver);
 
 		// Assert.assertTrue(jol.getvistedlink().isDisplayed());
@@ -98,9 +116,22 @@ public class JOLProd_Test extends base{
 
 		action.sendKeys(Keys.PAGE_DOWN).perform();
 
-		Assert.assertTrue(jol.getSelect_Familyplan().getText().contains("Family Plan"));
+		Assert.assertTrue(jol.getViewAllPlans().getText().contains("View All Plans"));
+		int plans = driver.findElements(By.xpath("//section[@class='allPlans']/div/div/div/div")).size();
+		// System.out.println(plans);
 		Thread.sleep(2000);
-		jse.executeScript("arguments[0].click();", jol.getFamilyPlan_Continue());
+		for (int i = 0; i < plans; i++) {
+			String planname = driver.findElements(By.xpath("//div[@class='span8']/div/h2")).get(i).getText();
+			if (planname.contains("Test $1")) {
+
+				jse.executeScript("arguments[0].click();",
+						driver.findElements(By.xpath("//div[@class='span4 pricing-table']/ul/li/a")).get(i));
+
+				break;
+			}
+
+		}
+
 		Thread.sleep(400);
 
 		Assert.assertTrue(jol.getchangeplanlink().isDisplayed());
@@ -109,7 +140,6 @@ public class JOLProd_Test extends base{
 		Assert.assertTrue(jol.getfeaturedplanslabel().getText().contains("Featured Plans"));
 
 	}
-
 @Test(priority = 4, groups = { "Regression" }, description = "sell a plan End to End")
 
 public void Sellplan() throws Exception {
@@ -120,9 +150,20 @@ public void Sellplan() throws Exception {
 
 	action.sendKeys(Keys.PAGE_DOWN).perform();
 
-	Assert.assertTrue(jol.getSelect_Familyplan().getText().contains("Family Plan"));
+	int plans = driver.findElements(By.xpath("//section[@class='allPlans']/div/div/div/div")).size();
+	//System.out.println(plans);
+	Thread.sleep(2000);
+	for (int i = 0; i < plans; i++) {
+		String planname = driver.findElements(By.xpath("//div[@class='span8']/div/h2")).get(i).getText();
+		if (planname.contains("Test $1")) {
 
-	jse.executeScript("arguments[0].click();", jol.getFamilyPlan_Continue());
+			jse.executeScript("arguments[0].click();",
+					driver.findElements(By.xpath("//div[@class='span4 pricing-table']/ul/li/a")).get(i));
+
+			break;
+		}
+
+	}
 
 	Thread.sleep(400);
 
@@ -146,11 +187,11 @@ public void Sellplan() throws Exception {
 	jol.getCityfield().click();
 	Thread.sleep(200);
 	action.sendKeys(Keys.PAGE_DOWN).perform();
-	jol.getCCNofield().sendKeys(downCCNo);
-	jol.getCCNamefield().sendKeys(downCCname);
-	jol.getCCExpfield().sendKeys(downCCexp);
-	//jol.getCCCVVfield().sendKeys(downCCCvv);
-	
+	jol.getDownCCNofield().sendKeys(downCCNo);
+	jol.getDownCCNamefield().sendKeys(downCCname);
+	jol.getDownCCExpfield().sendKeys(downCCexp);
+	jol.getDownCCCVVfield().sendKeys(downCCCvv);
+	jse.executeScript("arguments[0].click();", jol.getsameasdownpayment());
 	jse.executeScript("arguments[0].click();", jol.getReviewAndConfirmlink());
 
 	Thread.sleep(200);
@@ -190,7 +231,7 @@ public void Sellplan() throws Exception {
 @AfterClass(enabled = true)
 public void teardown() {
 
-	driver.close();
+	driver.quit();
 	driver = null;
 }
 

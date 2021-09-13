@@ -1,5 +1,4 @@
 browser = IE
-
 Jolurl = https://yourclub.test-jfisoftware.com/JOL/clubs/1942
 
 clubLoginPage = https://frontdesk.test-jfisoftware.com/Main/Views/Login.aspx
@@ -11,12 +10,16 @@ EmpBarcodeID = Autotesting
 EmpPassword = Testing1234
 barcodeid = G1196
 
+MSSurl = https://yourclub.test-jfisoftware.com/MSS/Account/Login?ReturnUrl=%2fMSS%2fhome%2findex%2f1942
+MemebrUsername = WEB-104269
+MemberPassword = Abhiram@1234
+
 payment = mastercard
 
 
 /*  Quicksale_newmember */
 
-cardholdername = Test
+cardholdername = AutoTest
 searchfirstname = a
 cardtype =  Visa
 visacard = 4111111111111111
@@ -27,6 +30,8 @@ Paymentoption = PayNow
 paymentmethod = cash
 cvvnum = 562
 zip = M1K5w4
+Address = Sheppard Ave
+City = Halifax
 
 /* Production*/
 
@@ -35,8 +40,20 @@ ProcClubLoginpage = https://frontdesk.jfisoftware.com/main/views/Login.aspx
 ProdEmpLoginPage = https://frontdesk.jfisoftware.com/Main/Views/EmployeeLogin.aspx
 ClubUserName = aphelionuser
 ClubPassword1 = Fitness1
-EmpUserName = umaprod
-EmpPassword1 = Ganesh@77777
+EmpUserName = Autotesting
+EmpPassword1 = Testing1234
 barcodeid1 = WEB-101132
+
+/* Cert region*/
+
+
+JOLCertURL = https://yourclub.cert-jfisoftware.com/jol/clubs/1912
+CertClubLoginpage = https://frontdesk.cert-jfisoftware.com/Main/Views/Login.aspx
+CertEmpLoginPage = https://frontdesk.cert-jfisoftware.com/Main/Views/EmployeeLogin.aspx
+ClubUserName2 = FDCert
+ClubPassword2 = FDCert123
+EmpUserName2 = Autotesting
+EmpPassword2 = Testing1234
+
 
 

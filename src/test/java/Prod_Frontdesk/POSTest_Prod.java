@@ -19,7 +19,7 @@ import resources.base;
 
 public class POSTest_Prod extends base {
 	private static JavascriptExecutor jse;
-	
+	private static String productBarcode = "14063454";
 	public SoftAssert softAssertion = new SoftAssert();
 	
 	DashboardPO d;
@@ -97,9 +97,11 @@ public class POSTest_Prod extends base {
 			jse.executeScript("arguments[0].click();", po.getitemBarcode1());
 			Assert.assertEquals("Item ID Lookup", driver.findElement(By.xpath("//a[@title='Item ID Lookup']")).getText());
 			jse.executeScript("arguments[0].click();", po.getinventorybtn());
+			po.getitembarcode().sendKeys(productBarcode);
 			jse.executeScript("arguments[0].click();", po.getitemsearch());
-			jse.executeScript("arguments[0].click();", po.getprod$1itemselect());
+			jse.executeScript("arguments[0].click();", po.getitemSelect());
 			jse.executeScript("arguments[0].click();", po.getproceedBtn());
+			
 
 			Assert.assertEquals("Total Invoice", driver.findElement(By.xpath("//a[@title='Total Invoice']")).getText());
 			jse.executeScript("arguments[0].click();", po.getcashbtn());
@@ -112,7 +114,7 @@ public class POSTest_Prod extends base {
 	@AfterClass(enabled =true)
 	public void teardown() {
 
-		driver.close();
+		
 		driver.quit();
 		driver = null;
 	}

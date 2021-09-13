@@ -68,9 +68,17 @@ public class JOLTest extends base {
 
 		Assert.assertEquals("Select A Gym", jol.getpageheader().getText());
 		Assert.assertTrue(jol.getSelectcityheader().getText().contains("Filter By Location:"));
-		
-		//throw new SkipException("Skipping this exception");
-//System.out.println(jol.getSelectcityheader().getText());
+
+		// throw new SkipException("Skipping this exception");
+		// System.out.println(jol.getSelectcityheader().getText());
+		List<WebElement> clubs = driver.findElements(By.xpath("//div[@class='span8']/div/h2"));
+
+		// System.out.println(clubs.size());
+
+		for (int i = 0; i < clubs.size(); i++) {
+
+			System.out.println(clubs.get(i).getText());
+		}
 
 	}
 
@@ -78,17 +86,29 @@ public class JOLTest extends base {
 
 	public void SelectClub() throws Exception {
 
-		Assert.assertTrue(jol.getclubfilter().getText().contains("Executive Fitness Club"));//Executive Fitness Club
 		Assert.assertEquals("Executive Fitness Club", jol.getclubheader().getText());
 		Assert.assertTrue(jol.getclublocation().isDisplayed());
 		Assert.assertTrue(jol.getclubimage().isDisplayed());
-		Assert.assertTrue(jol.getViewplanslink().isDisplayed());
 
-		jse.executeScript("arguments[0].click();", jol.getViewplanslink());
+		int viewplan = driver.findElements(By.xpath("//a[contains(text(),'View Plans')]")).size();
+		// System.out.println(viewplan);
+		Thread.sleep(2000);
+		for (int i = 0; i < viewplan; i++) {
+
+			String club = driver.findElements(By.xpath("//div[@class='span8']/div/h2")).get(i).getText();
+
+			if (club.contains("Executive Fitness Club")) {
+				jse.executeScript("arguments[0].click();",
+						driver.findElements(By.xpath("//a[contains(text(),'View Plans')]")).get(i));
+
+				break;
+
+			}
+		}
 
 	}
-	
-	@Test( priority = 3, description = "Select Plan and Change Plan")
+
+	@Test(priority = 3, description = "Select Plan and Change Plan")
 
 	public void SelectPlan() throws Exception {
 
@@ -99,9 +119,22 @@ public class JOLTest extends base {
 
 		action.sendKeys(Keys.PAGE_DOWN).perform();
 
-		Assert.assertTrue(jol.getselectplan().getText().contains("!umas open ended plan"));
+		Assert.assertTrue(jol.getViewAllPlans().getText().contains("View All Plans"));
+		int plans = driver.findElements(By.xpath("//section[@class='allPlans']/div/div/div/div")).size();
+		//System.out.println(plans);
 		Thread.sleep(2000);
-		jse.executeScript("arguments[0].click();", jol.getcontinueplan());
+		for (int i = 0; i < plans; i++) {
+			String planname = driver.findElements(By.xpath("//div[@class='span8']/div/h2")).get(i).getText();
+			if (planname.contains("Test plan for Automation")) {
+
+				jse.executeScript("arguments[0].click();",
+						driver.findElements(By.xpath("//div[@class='span4 pricing-table']/ul/li/a")).get(i));
+
+				break;
+			}
+
+		}
+
 		Thread.sleep(400);
 
 		Assert.assertTrue(jol.getchangeplanlink().isDisplayed());
@@ -111,89 +144,99 @@ public class JOLTest extends base {
 
 	}
 
-@Test(priority = 4, groups = { "Regression" }, description = "sell a plan End to End")
+	@Test(priority = 4, groups = { "Regression" }, description = "sell a plan End to End")
 
-public void Sellplan() throws Exception {
-	
+	public void Sellplan() throws Exception {
 
-	Assert.assertTrue(jol.getfeaturedplanslabel().getText().contains("Featured Plans"));
-	Actions action = new Actions(driver);
+		Assert.assertTrue(jol.getfeaturedplanslabel().getText().contains("Featured Plans"));
+		Actions action = new Actions(driver);
 
-	action.sendKeys(Keys.PAGE_DOWN).perform();
+		action.sendKeys(Keys.PAGE_DOWN).perform();
 
-	Assert.assertTrue(jol.getselectplan().getText().contains("!umas open ended plan"));
+		int plans = driver.findElements(By.xpath("//section[@class='allPlans']/div/div/div/div")).size();
+		//System.out.println(plans);
+		Thread.sleep(2000);
+		for (int i = 0; i < plans; i++) {
+			String planname = driver.findElements(By.xpath("//div[@class='span8']/div/h2")).get(i).getText();
+			if (planname.contains("Test plan for Automation")) {
 
-	jse.executeScript("arguments[0].click();", jol.getcontinueplan());
+				jse.executeScript("arguments[0].click();",
+						driver.findElements(By.xpath("//div[@class='span4 pricing-table']/ul/li/a")).get(i));
 
-	Thread.sleep(400);
+				break;
+			}
 
-	Assert.assertTrue(jol.getchangeplanlink().isDisplayed());
+		}
 
-	jse.executeScript("arguments[0].click();", jol.getcontinuebtn());
-	Thread.sleep(400);
+		Thread.sleep(400);
 
-	Assert.assertTrue(jol.getbackbtn().isDisplayed());
+		Assert.assertTrue(jol.getchangeplanlink().isDisplayed());
 
-	// Member information
-	jol.getFirstnamefield().sendKeys(firstname);
-	jol.getLastnamefield().sendKeys(lastname);
-	jol.getAddress1field().sendKeys(address1);
-	jol.getCityfield().sendKeys(city);
-	jol.getStatefield().sendKeys(state);
-	jol.getZipfield().sendKeys(zipcode);
-	jol.getEmailfield().sendKeys(email);
-	jol.getDateofBirthfield().sendKeys(dateofbirth);
-	// driver.findElement(By.cssSelector("input#homePhone")).click();
-	jol.getCityfield().click();
-	Thread.sleep(200);
-	action.sendKeys(Keys.PAGE_DOWN).perform();
-	jol.getDownCCNofield().sendKeys(downCCNo);
-	jol.getDownCCNamefield().sendKeys(downCCname);
-	jol.getDownCCExpfield().sendKeys(downCCexp);
-	jol.getDownCCCVVfield().sendKeys(downCCCvv);
-	jse.executeScript("arguments[0].click();", jol.getsameasdownpayment());
-	jse.executeScript("arguments[0].click();", jol.getReviewAndConfirmlink());
+		jse.executeScript("arguments[0].click();", jol.getcontinuebtn());
+		Thread.sleep(400);
 
-	Thread.sleep(200);
-	Assert.assertTrue(jol.getconfirmdetailsheader().isDisplayed());
+		Assert.assertTrue(jol.getbackbtn().isDisplayed());
 
-	// Confirm details
-	jse.executeScript("window.scrollBy(0,400)");// window scroll down
+		// Member information
+		jol.getFirstnamefield().sendKeys(firstname);
+		jol.getLastnamefield().sendKeys(lastname);
+		jol.getAddress1field().sendKeys(address1);
+		jol.getCityfield().sendKeys(city);
+		jol.getStatefield().sendKeys(state);
+		jol.getZipfield().sendKeys(zipcode);
+		jol.getEmailfield().sendKeys(email);
+		jol.getDateofBirthfield().sendKeys(dateofbirth);
+		// driver.findElement(By.cssSelector("input#homePhone")).click();
+		jol.getCityfield().click();
+		Thread.sleep(200);
+		action.sendKeys(Keys.PAGE_DOWN).perform();
+		jol.getDownCCNofield().sendKeys(downCCNo);
+		jol.getDownCCNamefield().sendKeys(downCCname);
+		jol.getDownCCExpfield().sendKeys(downCCexp);
+		jol.getDownCCCVVfield().sendKeys(downCCCvv);
+		jse.executeScript("arguments[0].click();", jol.getsameasdownpayment());
+		jse.executeScript("arguments[0].click();", jol.getReviewAndConfirmlink());
 
-	jse.executeScript("document.querySelector('div#divReviewAgreement').scrollTop=1200");// scrolldown sub window
-	Thread.sleep(200);
+		Thread.sleep(200);
+		Assert.assertTrue(jol.getconfirmdetailsheader().isDisplayed());
 
-	jse.executeScript("window.scrollBy(0,300)");// window scroll down
-	jse.executeScript("document.querySelector('div#divTermsAndCondition').scrollTop=1200");
+		// Confirm details
+		jse.executeScript("window.scrollBy(0,400)");// window scroll down
 
-	Thread.sleep(400);
-	Assert.assertTrue(jol.getAccepttermscheckbox().isDisplayed());
-	Assert.assertTrue(jol.getAccepttermscheckbox().isEnabled());
+		jse.executeScript("document.querySelector('div#divReviewAgreement').scrollTop=1200");// scrolldown sub window
+		Thread.sleep(200);
 
-	jse.executeScript("arguments[0].click();", jol.getAccepttermscheckbox());
+		jse.executeScript("window.scrollBy(0,300)");// window scroll down
+		jse.executeScript("document.querySelector('div#divTermsAndCondition').scrollTop=1200");
 
-	jse.executeScript("arguments[0].click();", jol.getclicktoConfirm());
-	Thread.sleep(200);
-	Assert.assertTrue(driver.findElement(By.xpath("//h1[contains(text(),'Confirmation')]")).isDisplayed());
+		Thread.sleep(400);
+		Assert.assertTrue(jol.getAccepttermscheckbox().isDisplayed());
+		Assert.assertTrue(jol.getAccepttermscheckbox().isEnabled());
 
-	List<WebElement> confirmationdetails = driver.findElements(By.xpath("//div[@class='margin10']"));
-	
-
-	for (int i = 0; i < confirmationdetails.size(); i++) {
-
-		System.out.println(confirmationdetails.get(i).getText());
+		
+		  jse.executeScript("arguments[0].click();", jol.getAccepttermscheckbox());
+		  
+		  jse.executeScript("arguments[0].click();", jol.getclicktoConfirm());
+		  Thread.sleep(200); Assert.assertTrue(driver.findElement(By.xpath(
+		  "//h1[contains(text(),'Confirmation')]")).isDisplayed());
+		  
+		  List<WebElement> confirmationdetails =
+		  driver.findElements(By.xpath("//div[@class='margin10']"));
+		  
+		  for (int i = 0; i < confirmationdetails.size(); i++) {
+		  
+		  System.out.println(confirmationdetails.get(i).getText());
+		  
+		  } jse.executeScript("arguments[0].click();", jol.getstartoverlink());
+		 
 
 	}
-	jse.executeScript("arguments[0].click();", jol.getstartoverlink());
+
+	@AfterClass(enabled = true)
+	public void teardown() {
+
+		driver.close();
+		driver = null;
+	}
 
 }
-
-@AfterClass(enabled = true)
-public void teardown() {
-
-	driver.close();
-	driver = null;
-}
-
-}
-
