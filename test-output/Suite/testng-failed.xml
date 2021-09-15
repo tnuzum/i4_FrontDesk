@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="i4_Frontdesk(failed)">
+    <classes>
+      <class name="FrontDesk.QuicksalerenewalTest">
+        <methods>
+          <include name="renewalcontract_splitpayment"/>
+          <include name="teardown"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- FrontDesk.QuicksalerenewalTest -->
+    </classes>
+  </test> <!-- i4_Frontdesk(failed) -->
+</suite> <!-- Failed suite [Suite] -->

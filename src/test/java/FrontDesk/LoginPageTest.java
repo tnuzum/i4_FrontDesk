@@ -1,8 +1,8 @@
 package FrontDesk;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -29,7 +29,7 @@ public class LoginPageTest extends base {
 	
 	
 	}
-	@BeforeTest
+	@BeforeClass
 	public void initialize() throws Exception {
 
 		driver = initializeDriver();
@@ -69,10 +69,11 @@ public class LoginPageTest extends base {
 //			softAssertion.assertAll();
 	}
 
-	@AfterTest (enabled =false)
+	@AfterClass (enabled =true)
 	public void teardown() {
 
 		driver.close();
+		driver.quit();
 		driver = null;
 	}
 

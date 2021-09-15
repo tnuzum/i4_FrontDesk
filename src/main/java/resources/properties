@@ -1,60 +1,59 @@
 browser = IE
-LoginPage = https://frontdesk.test-jfisoftware.com/Main/Views/EmployeeLogin.aspx
-!https://frontdesk.test-jfisoftware.com/main/views/cover.aspx
-employeeBarcodeId = Uma
-employeePassword = blue1234
-searchlastname = t
-payment = mastercard
-cvv = 789
+Jolurl = https://yourclub.test-jfisoftware.com/JOL/clubs/1942
 
 clubLoginPage = https://frontdesk.test-jfisoftware.com/Main/Views/Login.aspx
 EmpLoginPage = https://frontdesk.test-jfisoftware.com/Main/Views/EmployeeLogin.aspx
 !https://frontdesk.test-jfisoftware.com/main/views/cover.aspxc
 clubBarcodeId = qatraining
 clubPassword = training125
-EmpBarcodeID = Seema
-EmpPassword = Sunday@123
+EmpBarcodeID = Autotesting
+EmpPassword = Testing1234
+barcodeid = G1196
+
+MSSurl = https://yourclub.test-jfisoftware.com/MSS/Account/Login?ReturnUrl=%2fMSS%2fhome%2findex%2f1942
+MemebrUsername = WEB-104269
+MemberPassword = Abhiram@1234
+
+payment = mastercard
+
 
 /*  Quicksale_newmember */
-memberfirstname = sarswati
-memberlastname = bushhhh
-memberaddress = Ionview
-membercity = Ottawa
-memberstate = Canada
-memberdateofbirth = 10/05/1990
-memberbillingname = peter
-membermobilenumber = 9874589615
-memberworknumber = 6548425863
-memberemail = ptechbr456@gmil.com
-creditcardnum = 5454545454545454
-cardexpmonth = 12
-cardexpyear = 2022
 
-/* Quicksale_renewal */
-
+cardholdername = AutoTest
 searchfirstname = a
 cardtype =  Visa
 visacard = 4111111111111111
-creditcardnummc = 5454545454545454
+Mccard = 5454545454545454
 cardexpmonthfield = 12
-cardexpyearfield = 2022
-Paymentoption = paynow
-paymentmethod = creditcard
+cardexpyearfield = 2024
+Paymentoption = PayNow
+paymentmethod = cash
 cvvnum = 562
+zip = M1K5w4
+Address = Sheppard Ave
+City = Halifax
 
-/* Add guest */
-guestfirstname = krishnarao
-guestlastname = kinnera   
-dateofbirth = 10/05/1992
-addressfield = rosemountdrive
-city = Toronto
-Zipcode = 523687
-guestpassperiod = 4
-email = grillgarden@gmail.com
-workphone = 9856145278
-familyfirstname = Aishwaryaa
-homephone = 6478426512
+/* Production*/
 
-/* Change request */
+JOLProdURL = https://www.yourclub.net/JOL/Clubs/605
+ProcClubLoginpage = https://frontdesk.jfisoftware.com/main/views/Login.aspx
+ProdEmpLoginPage = https://frontdesk.jfisoftware.com/Main/Views/EmployeeLogin.aspx
+ClubUserName = aphelionuser
+ClubPassword1 = Fitness1
+EmpUserName = Autotesting
+EmpPassword1 = Testing1234
+barcodeid1 = WEB-101132
 
-firstletter = t
+/* Cert region*/
+
+
+JOLCertURL = https://yourclub.cert-jfisoftware.com/jol/clubs/1912
+CertClubLoginpage = https://frontdesk.cert-jfisoftware.com/Main/Views/Login.aspx
+CertEmpLoginPage = https://frontdesk.cert-jfisoftware.com/Main/Views/EmployeeLogin.aspx
+ClubUserName2 = FDCert
+ClubPassword2 = FDCert123
+EmpUserName2 = Autotesting
+EmpPassword2 = Testing1234
+
+
+
