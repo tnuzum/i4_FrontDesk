@@ -7,7 +7,7 @@ EmpLoginPage = https://frontdesk.test-jfisoftware.com/Main/Views/EmployeeLogin.a
 clubBarcodeId = qatraining
 clubPassword = training125
 EmpBarcodeID = Autotesting
-EmpPassword = Testing1234
+EmpPassword = Testing1111
 barcodeid = G1196
 
 MSSurl = https://yourclub.test-jfisoftware.com/MSS/Account/Login?ReturnUrl=%2fMSS%2fhome%2findex%2f1942
@@ -32,6 +32,7 @@ cvvnum = 562
 zip = M1K5w4
 Address = Sheppard Ave
 City = Halifax
+State=NS
 
 /* Production*/
 
