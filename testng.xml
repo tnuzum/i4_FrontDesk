@@ -10,7 +10,7 @@
   <test thread-count="5" name="Test">
     <classes>
       <class name="FrontDesk.POS_Test"/>
-      <class name="FrontDesk.Apptadmintest"/>
+       <class name="FrontDesk.Apptadmintest"/>
       
       <class name="FrontDesk.Addguesttest"/>
       <class name="FrontDesk.ReportTest"/>
@@ -18,6 +18,8 @@
       <class name="FrontDesk.Membermanager"/>
       <class name="FrontDesk.QuickSales_newmember"/>
       <class name="i4_JOL.JOLTest"/>
+      <class name="FrontDesk.MSSTest"/>
+  
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
