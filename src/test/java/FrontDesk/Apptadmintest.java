@@ -24,7 +24,7 @@ import pageObjects.ApptAdminPO;
 import pageObjects.DashboardPO;
 import pageObjects.LoginPO;
 import resources.CustomActions;
-
+import resources.ExtentReport;
 import resources.base;
 
 @Listeners(resources.Listeners.class)
@@ -47,22 +47,24 @@ public class Apptadmintest extends base {
 
 	public ApptAdminPO appt;
 	public CustomActions ca;
-	
+	//public ExtentReport extent;
 	
 
 	public Apptadmintest() {
 		ca = new CustomActions();
 		
-
+      //  extent = new ExtentReport();
 	}
-
+	
 	
 	
 	@BeforeClass
 	public void initialize() throws Exception {
 		driver = initializeDriver();
 		ca.setDriver(driver);
-
+        
+		ExtentReport.getReportobject();
+		
 		driver.get(prop.getProperty("clubLoginPage"));
 
 		d = new DashboardPO(driver);
@@ -84,7 +86,7 @@ public class Apptadmintest extends base {
 
 		Assert.assertEquals(driver.getTitle(), "Member Manager");
 
-		jse.executeScript("arguments[0].click();", appt.getApptadmintbtn());
+	jse.executeScript("arguments[0].click();", appt.getApptadmintbtn());
 
 		String expectedtitle = driver.findElement(By.xpath("//a[@title='Appointment Admin']")).getText();
 		System.out.println(expectedtitle);

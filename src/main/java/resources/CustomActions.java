@@ -1,18 +1,7 @@
 package resources;
 
-import java.io.File;
-
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
-
 import pageObjects.HomePO;
 import pageObjects.POSPO;
 import pageObjects.QuickSalesPO;
@@ -122,33 +111,21 @@ public class CustomActions extends base {
 		return null;
 	}
 	
-
 	
-
-	public  void takescreenshot() throws Exception {
-	
-	
-
-		  try {
-			TakesScreenshot ts = ((TakesScreenshot)driver);
-			  
-			   File SrcFile = ts.getScreenshotAs(OutputType.FILE);
-			  
-			 // File DestFile = new File("./Screenshot/AddGuest_details");
-			   
-			   String timestamp = new SimpleDateFormat("MM_dd_yyyy__hh_mm_ss").format(new Date());
-			  
-			  FileUtils.copyFile(SrcFile, new File("./Screenshot/classname"+timestamp+".png"));
-			  
-			 
-			  
-		} catch (WebDriverException e) {
-			
-		} catch (IOException e) {
-			
-		}
-	
+public String MSSlogin(String BarcodeIDMem, String PasswordMem){
+		
+		pageObjects.MSSLoginPO Log = new pageObjects.MSSLoginPO(driver);
+		
+		Log.getUserNameInput().sendKeys(BarcodeIDMem);
+		
+		Log.getPasswordInput().sendKeys(PasswordMem);
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("arguments[0].click();", Log.getLoginButton());
+		//L.getEmpLogin().click();
+		return null;
 	}
+
+
 	
 	}
 

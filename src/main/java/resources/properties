@@ -11,13 +11,13 @@ EmpPassword = Testing1111
 barcodeid = G1196
 
 MSSurl = https://yourclub.test-jfisoftware.com/MSS/Account/Login?ReturnUrl=%2fMSS%2fhome%2findex%2f1942
-MemebrUsername = WEB-104269
-MemberPassword = Abhiram@1234
+MemebrUsername = G2468
+MemberPassword = Sunday@123
 
 payment = mastercard
 
 
-/*  Quicksale_newmember */
+
 
 cardholdername = AutoTest
 searchfirstname = a

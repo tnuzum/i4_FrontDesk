@@ -143,6 +143,12 @@
 					<suiteXmlFiles>
 						<suiteXmlFile>testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
+					
+					<systemPropertyVariables>
+					
+					
+					</systemPropertyVariables>
+					
 				</configuration>
 			</plugin>
 		</plugins>
@@ -199,11 +205,22 @@
 			<artifactId>scribejava-apis</artifactId>
 			<version>2.5.3</version>
 		</dependency>
-		<dependency>
+<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>3.141.59</version>
 		</dependency>
+
+
+
+  <dependency>
+    <groupId>io.github.bonigarcia</groupId>
+    <artifactId>webdrivermanager</artifactId>
+    <version>5.0.3</version>
+    <scope>test</scope>
+</dependency>
+
+
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-server</artifactId>
@@ -220,7 +237,7 @@
 			<artifactId>extentreports</artifactId>
 			<version>2.41.2</version>
 		</dependency>
-		<dependency>
+		<!-- dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
 			<version>2.12.0</version>
@@ -229,7 +246,7 @@
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
 			<version>2.12.0</version>
-		</dependency>
+		</dependency-->
 	
 
 
